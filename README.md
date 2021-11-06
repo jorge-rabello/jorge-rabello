@@ -1,5 +1,5 @@
 - 👋 Hi, I’m Jorge Rabello (@jorge-rabello)
-- 👀 I’m interested in backend software engenieer
+- 👀 I’m interested in backend software engineering
 - 🌱 I’m currently learning python, aws and kafka
 - 💞️ I’m looking to collaborate on make Zé the best experience for our customers
 - 📫 How to reach me: jorge.rabello@ze.delivery | @jorge.rabello
