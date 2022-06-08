@@ -1,0 +1,1979 @@
+{
+	"info": {
+		"_postman_id": "06472db1-9f0a-445c-b006-761f17b5bd9a",
+		"name": "Zé Graphql",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "onboarding",
+			"item": [
+				{
+					"name": "IdentitySignUp",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response_body = JSON.parse(responseBody);",
+									"identities = response_body.data.identitySignUp;",
+									"postman.setEnvironmentVariable(\"access_token\", identities.accessToken);",
+									"postman.setEnvironmentVariable(\"refresh_token\", identities.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Origin",
+								"value": "https://release.web.ze.delivery"
+							},
+							{
+								"key": "Referer",
+								"value": "https://release.web.ze.delivery/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36"
+							},
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"101\", \"Google Chrome\";v=\"101\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"macOS\""
+							},
+							{
+								"key": "x-request-origin",
+								"value": "WEB"
+							},
+							{
+								"key": "x-visitorid",
+								"value": "de52d9e4-9f74-4176-8b79-a98d55a56193"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"operationName\": \"IdentitySignUp\",\n    \"variables\": {\n        \"email\": \"user62@gmail.com\",\n        \"password\": \"Ma53174310!\",\n        \"name\": \"Teste One\",\n        \"phoneNumber\": \"+5511951482377\",\n        \"document\": \"36421147844\",\n        \"birthDate\": \"1988-01-25\",\n        \"marketingOptIn\": false,\n        \"sendConfirmationCode\": true\n    },\n    \"query\": \"mutation IdentitySignUp($email: String!, $password: String!, $name: String, $phoneNumber: String, $document: String, $birthDate: String, $sendConfirmationCode: Boolean!, $marketingOptIn: Boolean) {\\n  identitySignUp(email: $email, password: $password, name: $name, phoneNumber: $phoneNumber, document: $document, birthDate: $birthDate, sendConfirmationCode: $sendConfirmationCode, marketingOptIn: $marketingOptIn) {\\n    accessToken\\n    refreshToken\\n    idToken\\n    consumer {\\n      id\\n      mainEmail\\n      name\\n      phoneNumber\\n      document\\n      birthDate\\n      hasConsumerData\\n      phoneNumberValidated\\n    }\\n    messages {\\n      category\\n      target\\n      key\\n      args\\n      message\\n    }\\n  }\\n}\\n\"\n}"
+						},
+						"url": {
+							"raw": "https://api.release.ze.delivery/public-api",
+							"protocol": "https",
+							"host": [
+								"api",
+								"release",
+								"ze",
+								"delivery"
+							],
+							"path": [
+								"public-api"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "loadOrderRate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Origin",
+								"value": "https://release.web.ze.delivery"
+							},
+							{
+								"key": "Referer",
+								"value": "https://release.web.ze.delivery/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36"
+							},
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"101\", \"Google Chrome\";v=\"101\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"macOS\""
+							},
+							{
+								"key": "x-accesstoken",
+								"value": "eyJraWQiOiJtVkU3OWZ5M0QrV3JZTUU5MGN6TytoN1dJaG5QalFNM3NrSFwvUlRqZTlxdz0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI1NmQ5NGVjMy04YWFjLTQ3MjgtYmFhMi1hYWNhZGJiYzk0ODUiLCJldmVudF9pZCI6ImU3ZjBlNzcyLWVmZDctNDVlZC1hZmM4LWNhZTcyZjg4N2Y0MSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE2NTM2MjE3MDcsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy13ZXN0LTIuYW1hem9uYXdzLmNvbVwvdXMtd2VzdC0yX1JKNVdWQnhoSCIsImV4cCI6MTY1MzcwODEwNiwiaWF0IjoxNjUzNjIxNzA3LCJqdGkiOiI5YjFlOTc1Yi04OTRmLTRlZDctODBhMC04MDU1ZTBlN2FlNGEiLCJjbGllbnRfaWQiOiIzMmhnMWVoYTRxczc5cnA1ZDdzcXFobzQ1bCIsInVzZXJuYW1lIjoiZDc4ODljYzQtNDE0OC01YTliLTkxM2UtZTExOWJkNTIyMDA2In0.KzhfTnUGf1GgLx9JTIwdN3_Ecl_ZzSGnVtbWISnrbcmrrfrI3XJlHEn8LCrOrmkWdB_BtlAdYY0pLjzN35SoJV3iil4dJPK56dJkXmmdlYfQuXromer9j8KaEKPfLtSuKaWDFT3h3dZqMKb7zlqc7Ui42EGOnN8xeT3a608l9MJBpCCLlCfJGzD6uRaDhTRW-h6uxBYVJJPzJ6BgzlMIbCTupuZSRv8i6xN1LkzQvjMSHOMEBmCISAiYefsu4-LSvgi8WNGmBaO8PXzJRjgmEjzW2seI_PtHuRff4mzOPo5jbqDyJy3aRvixSbKGgsjxSxXM4KSclMl_9EgpfEwjrQ"
+							},
+							{
+								"key": "x-refreshtoken",
+								"value": "eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.mfWcmt_PWCwW-Z_bZJ9AP8L735fOMsDkuYrdMp75V7y6eAD5FxsJGCgPsLxdf-9ol9HgZ0-wisxpmqG1UiE4Od8l-C6rOMP-KTH_JaqydtGzOE8KdBT7OYDunXuI2IjTNOYblSehrDa0qw_TEUnNEPqjFUNVRUbaCmHwn-K_80jk55zDeEyKRdhOQ_nqvpWG0qKCdXBizf75SpF6lH4RmLh-fSTV50Kiw1FQd1vUekx4dJ5rqOSu7BPnQbO0OakSgkZOz-uqFC7reiobIUGvX1cHk-YJTgJ6BApkbgrWktE5VwZqcHaEtWVqcwhdwjmI__76ZmXUXhmt7ijc6NmdfQ.ISM6dx6jWKIilSlF.QrORhSFnvPPjoXQ-INXSl8Vs4kA-qlQHLRHaW80F-D9roIkDgx0paRw4PeVHtMnA_CrCtEXHxQ-Wt97J93A15tDfo5G7Gy6tu5F826YUiIF4_vJAYjKMBgW8eg3C39pA053LNX_2dLPAPUnlxNf16J_rMSHQEnGuyvmEhSSi9oXAxL7-nrrhO4trzXnVukp0EQ1nif2ch8EqXBOSA3SxM5Qa0IEfDbRH3eu0U76leFChtNWPvRzU7eXDaAd9vIB9wYmPUET1vefKXuiuwFmXaf2It4tKFFogIt5A3FYeuDgkVnU8Cix4J3hUjUSq2fm4Duae9JXZm52zcjBnEYJo-jrZk9HRnonQP3z6v4uWnHQUVeHh8mrGt3zQuQkBP6w_N6yFAgsWWDxM_7ofziwZQy2-hXxgLPUyu3acpLW8Ug_Pj3RMM9eOEwD9DqJ5nphc3hpPSns7hYBIKJG-yMnFqzxEgVqOp4sDjqG_juFFfdFu3c3nQQ4AMIPReEPW8sIkYWYO-1DH4GxT9dXIgWabROP-llPhdOgAX2xLXKMA9TwucpZtmM7QAfFtx0RHOSxiffJ2sSXNuMtER-SOKkJGY9wcaYtTMwhCmGCtHSpH_0XIh2WTeDLSDGyatcHfNtL1-pzag4JzCv8t7qEEm-ELuksUCSshVts3wiurv_tNLyjpKmthD2OzuQfIbPf7QTPfrLP4RWUTYzdFUS_9T_A2bV3WNXcSgJPJRG2eRzOMJzlMJ5EnQt1PjaYN2bdSnmWn98CidlA1eEYJWXx4rnFSDiK3TTrFGInmSQgnIvJoJeOAfEulFA44xELVM0qFp9AqRfyaYYPX2YkDcyCpz9KYSUIa3tf_DZAg-UNWZf0fRZC7phr4r15mG6NnXC6XUpMjhzBHYmkzv5U2qzkKm_C8Z1yZNtJiMnfVob5stKpUbLHncPtrHEi63rNjqLpZFBKhAr-L1eh_uRhqN_-k0fMT1rhbhkBfoUsevSNjD9kqooYaeEQh5jSMhiq2tnvo034JW4teJp-Z3FGWwrS8y9-zj9nNlW-MVRr0JJvH8qHuojMO5LsIwL9cCXHWLhxGdStK617Dqk2OC1Eyg2DH19LGujTxSVRVAAkur5aBeQE9945JnNqkuhX1VsIr-PGcADthz93cAxM9oZD-6aPA5S1I90Q0VKEk0rjpY7K8xacjc3Fg-yc_e7DkmCw7YUOyZGKzAsbVtQBF2-mCoZ0nli9M81iaK2hY9gzQB2MkMjoTJCyL0ndVfPhV1Vo1plSMuNx00sRxwg9dDoOXjsqX3rssEFmmMo2Zm9rjAvAbVbxQSAoamHojNcPjigDYjQ.o_P8o79HVLo2Kbs4VHk8zg"
+							},
+							{
+								"key": "x-request-origin",
+								"value": "WEB"
+							},
+							{
+								"key": "x-username",
+								"value": "paulinho@gmail.com"
+							},
+							{
+								"key": "x-visitorid",
+								"value": "de52d9e4-9f74-4176-8b79-a98d55a56193"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"operationName\": \"loadOrderRate\",\n    \"variables\": {},\n    \"query\": \"query loadOrderRate {\\n  loadOrderToRate {\\n    number\\n    createdDate\\n    totalItemsPrice\\n    totalDiscount\\n    totalPrice\\n    rating {\\n      value\\n      comment\\n      reasons\\n    }\\n  }\\n}\\n\"\n}"
+						},
+						"url": {
+							"raw": "https://api.release.ze.delivery/public-api",
+							"protocol": "https",
+							"host": [
+								"api",
+								"release",
+								"ze",
+								"delivery"
+							],
+							"path": [
+								"public-api"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "identityConfirmPhoneNumber",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Origin",
+								"value": "https://release.web.ze.delivery"
+							},
+							{
+								"key": "Referer",
+								"value": "https://release.web.ze.delivery/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36"
+							},
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"101\", \"Google Chrome\";v=\"101\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"macOS\""
+							},
+							{
+								"key": "x-accesstoken",
+								"value": "eyJraWQiOiJtVkU3OWZ5M0QrV3JZTUU5MGN6TytoN1dJaG5QalFNM3NrSFwvUlRqZTlxdz0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI1NmQ5NGVjMy04YWFjLTQ3MjgtYmFhMi1hYWNhZGJiYzk0ODUiLCJldmVudF9pZCI6ImU3ZjBlNzcyLWVmZDctNDVlZC1hZmM4LWNhZTcyZjg4N2Y0MSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE2NTM2MjE3MDcsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy13ZXN0LTIuYW1hem9uYXdzLmNvbVwvdXMtd2VzdC0yX1JKNVdWQnhoSCIsImV4cCI6MTY1MzcwODEwNiwiaWF0IjoxNjUzNjIxNzA3LCJqdGkiOiI5YjFlOTc1Yi04OTRmLTRlZDctODBhMC04MDU1ZTBlN2FlNGEiLCJjbGllbnRfaWQiOiIzMmhnMWVoYTRxczc5cnA1ZDdzcXFobzQ1bCIsInVzZXJuYW1lIjoiZDc4ODljYzQtNDE0OC01YTliLTkxM2UtZTExOWJkNTIyMDA2In0.KzhfTnUGf1GgLx9JTIwdN3_Ecl_ZzSGnVtbWISnrbcmrrfrI3XJlHEn8LCrOrmkWdB_BtlAdYY0pLjzN35SoJV3iil4dJPK56dJkXmmdlYfQuXromer9j8KaEKPfLtSuKaWDFT3h3dZqMKb7zlqc7Ui42EGOnN8xeT3a608l9MJBpCCLlCfJGzD6uRaDhTRW-h6uxBYVJJPzJ6BgzlMIbCTupuZSRv8i6xN1LkzQvjMSHOMEBmCISAiYefsu4-LSvgi8WNGmBaO8PXzJRjgmEjzW2seI_PtHuRff4mzOPo5jbqDyJy3aRvixSbKGgsjxSxXM4KSclMl_9EgpfEwjrQ"
+							},
+							{
+								"key": "x-refreshtoken",
+								"value": "eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.mfWcmt_PWCwW-Z_bZJ9AP8L735fOMsDkuYrdMp75V7y6eAD5FxsJGCgPsLxdf-9ol9HgZ0-wisxpmqG1UiE4Od8l-C6rOMP-KTH_JaqydtGzOE8KdBT7OYDunXuI2IjTNOYblSehrDa0qw_TEUnNEPqjFUNVRUbaCmHwn-K_80jk55zDeEyKRdhOQ_nqvpWG0qKCdXBizf75SpF6lH4RmLh-fSTV50Kiw1FQd1vUekx4dJ5rqOSu7BPnQbO0OakSgkZOz-uqFC7reiobIUGvX1cHk-YJTgJ6BApkbgrWktE5VwZqcHaEtWVqcwhdwjmI__76ZmXUXhmt7ijc6NmdfQ.ISM6dx6jWKIilSlF.QrORhSFnvPPjoXQ-INXSl8Vs4kA-qlQHLRHaW80F-D9roIkDgx0paRw4PeVHtMnA_CrCtEXHxQ-Wt97J93A15tDfo5G7Gy6tu5F826YUiIF4_vJAYjKMBgW8eg3C39pA053LNX_2dLPAPUnlxNf16J_rMSHQEnGuyvmEhSSi9oXAxL7-nrrhO4trzXnVukp0EQ1nif2ch8EqXBOSA3SxM5Qa0IEfDbRH3eu0U76leFChtNWPvRzU7eXDaAd9vIB9wYmPUET1vefKXuiuwFmXaf2It4tKFFogIt5A3FYeuDgkVnU8Cix4J3hUjUSq2fm4Duae9JXZm52zcjBnEYJo-jrZk9HRnonQP3z6v4uWnHQUVeHh8mrGt3zQuQkBP6w_N6yFAgsWWDxM_7ofziwZQy2-hXxgLPUyu3acpLW8Ug_Pj3RMM9eOEwD9DqJ5nphc3hpPSns7hYBIKJG-yMnFqzxEgVqOp4sDjqG_juFFfdFu3c3nQQ4AMIPReEPW8sIkYWYO-1DH4GxT9dXIgWabROP-llPhdOgAX2xLXKMA9TwucpZtmM7QAfFtx0RHOSxiffJ2sSXNuMtER-SOKkJGY9wcaYtTMwhCmGCtHSpH_0XIh2WTeDLSDGyatcHfNtL1-pzag4JzCv8t7qEEm-ELuksUCSshVts3wiurv_tNLyjpKmthD2OzuQfIbPf7QTPfrLP4RWUTYzdFUS_9T_A2bV3WNXcSgJPJRG2eRzOMJzlMJ5EnQt1PjaYN2bdSnmWn98CidlA1eEYJWXx4rnFSDiK3TTrFGInmSQgnIvJoJeOAfEulFA44xELVM0qFp9AqRfyaYYPX2YkDcyCpz9KYSUIa3tf_DZAg-UNWZf0fRZC7phr4r15mG6NnXC6XUpMjhzBHYmkzv5U2qzkKm_C8Z1yZNtJiMnfVob5stKpUbLHncPtrHEi63rNjqLpZFBKhAr-L1eh_uRhqN_-k0fMT1rhbhkBfoUsevSNjD9kqooYaeEQh5jSMhiq2tnvo034JW4teJp-Z3FGWwrS8y9-zj9nNlW-MVRr0JJvH8qHuojMO5LsIwL9cCXHWLhxGdStK617Dqk2OC1Eyg2DH19LGujTxSVRVAAkur5aBeQE9945JnNqkuhX1VsIr-PGcADthz93cAxM9oZD-6aPA5S1I90Q0VKEk0rjpY7K8xacjc3Fg-yc_e7DkmCw7YUOyZGKzAsbVtQBF2-mCoZ0nli9M81iaK2hY9gzQB2MkMjoTJCyL0ndVfPhV1Vo1plSMuNx00sRxwg9dDoOXjsqX3rssEFmmMo2Zm9rjAvAbVbxQSAoamHojNcPjigDYjQ.o_P8o79HVLo2Kbs4VHk8zg"
+							},
+							{
+								"key": "x-request-origin",
+								"value": "WEB"
+							},
+							{
+								"key": "x-username",
+								"value": "paulinho@gmail.com"
+							},
+							{
+								"key": "x-visitorid",
+								"value": "de52d9e4-9f74-4176-8b79-a98d55a56193"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"operationName\": \"identityConfirmPhoneNumber\",\n    \"variables\": {\n        \"confirmationCode\": \"314265\"\n    },\n    \"query\": \"mutation identityConfirmPhoneNumber($confirmationCode: String!) {\\n  identityConfirmPhoneNumber(confirmationCode: $confirmationCode) {\\n    consumer {\\n      phoneNumberValidated\\n    }\\n    messages {\\n      category\\n      target\\n      key\\n      args\\n      message\\n    }\\n  }\\n}\\n\"\n}"
+						},
+						"url": {
+							"raw": "https://api.release.ze.delivery/public-api",
+							"protocol": "https",
+							"host": [
+								"api",
+								"release",
+								"ze",
+								"delivery"
+							],
+							"path": [
+								"public-api"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "loadDeliveryOptionsMessages",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Origin",
+								"value": "https://release.web.ze.delivery"
+							},
+							{
+								"key": "Referer",
+								"value": "https://release.web.ze.delivery/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36"
+							},
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"101\", \"Google Chrome\";v=\"101\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"macOS\""
+							},
+							{
+								"key": "x-accesstoken",
+								"value": "eyJraWQiOiJtVkU3OWZ5M0QrV3JZTUU5MGN6TytoN1dJaG5QalFNM3NrSFwvUlRqZTlxdz0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI1NmQ5NGVjMy04YWFjLTQ3MjgtYmFhMi1hYWNhZGJiYzk0ODUiLCJldmVudF9pZCI6ImU3ZjBlNzcyLWVmZDctNDVlZC1hZmM4LWNhZTcyZjg4N2Y0MSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE2NTM2MjE3MDcsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy13ZXN0LTIuYW1hem9uYXdzLmNvbVwvdXMtd2VzdC0yX1JKNVdWQnhoSCIsImV4cCI6MTY1MzcwODEwNiwiaWF0IjoxNjUzNjIxNzA3LCJqdGkiOiI5YjFlOTc1Yi04OTRmLTRlZDctODBhMC04MDU1ZTBlN2FlNGEiLCJjbGllbnRfaWQiOiIzMmhnMWVoYTRxczc5cnA1ZDdzcXFobzQ1bCIsInVzZXJuYW1lIjoiZDc4ODljYzQtNDE0OC01YTliLTkxM2UtZTExOWJkNTIyMDA2In0.KzhfTnUGf1GgLx9JTIwdN3_Ecl_ZzSGnVtbWISnrbcmrrfrI3XJlHEn8LCrOrmkWdB_BtlAdYY0pLjzN35SoJV3iil4dJPK56dJkXmmdlYfQuXromer9j8KaEKPfLtSuKaWDFT3h3dZqMKb7zlqc7Ui42EGOnN8xeT3a608l9MJBpCCLlCfJGzD6uRaDhTRW-h6uxBYVJJPzJ6BgzlMIbCTupuZSRv8i6xN1LkzQvjMSHOMEBmCISAiYefsu4-LSvgi8WNGmBaO8PXzJRjgmEjzW2seI_PtHuRff4mzOPo5jbqDyJy3aRvixSbKGgsjxSxXM4KSclMl_9EgpfEwjrQ"
+							},
+							{
+								"key": "x-refreshtoken",
+								"value": "eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.mfWcmt_PWCwW-Z_bZJ9AP8L735fOMsDkuYrdMp75V7y6eAD5FxsJGCgPsLxdf-9ol9HgZ0-wisxpmqG1UiE4Od8l-C6rOMP-KTH_JaqydtGzOE8KdBT7OYDunXuI2IjTNOYblSehrDa0qw_TEUnNEPqjFUNVRUbaCmHwn-K_80jk55zDeEyKRdhOQ_nqvpWG0qKCdXBizf75SpF6lH4RmLh-fSTV50Kiw1FQd1vUekx4dJ5rqOSu7BPnQbO0OakSgkZOz-uqFC7reiobIUGvX1cHk-YJTgJ6BApkbgrWktE5VwZqcHaEtWVqcwhdwjmI__76ZmXUXhmt7ijc6NmdfQ.ISM6dx6jWKIilSlF.QrORhSFnvPPjoXQ-INXSl8Vs4kA-qlQHLRHaW80F-D9roIkDgx0paRw4PeVHtMnA_CrCtEXHxQ-Wt97J93A15tDfo5G7Gy6tu5F826YUiIF4_vJAYjKMBgW8eg3C39pA053LNX_2dLPAPUnlxNf16J_rMSHQEnGuyvmEhSSi9oXAxL7-nrrhO4trzXnVukp0EQ1nif2ch8EqXBOSA3SxM5Qa0IEfDbRH3eu0U76leFChtNWPvRzU7eXDaAd9vIB9wYmPUET1vefKXuiuwFmXaf2It4tKFFogIt5A3FYeuDgkVnU8Cix4J3hUjUSq2fm4Duae9JXZm52zcjBnEYJo-jrZk9HRnonQP3z6v4uWnHQUVeHh8mrGt3zQuQkBP6w_N6yFAgsWWDxM_7ofziwZQy2-hXxgLPUyu3acpLW8Ug_Pj3RMM9eOEwD9DqJ5nphc3hpPSns7hYBIKJG-yMnFqzxEgVqOp4sDjqG_juFFfdFu3c3nQQ4AMIPReEPW8sIkYWYO-1DH4GxT9dXIgWabROP-llPhdOgAX2xLXKMA9TwucpZtmM7QAfFtx0RHOSxiffJ2sSXNuMtER-SOKkJGY9wcaYtTMwhCmGCtHSpH_0XIh2WTeDLSDGyatcHfNtL1-pzag4JzCv8t7qEEm-ELuksUCSshVts3wiurv_tNLyjpKmthD2OzuQfIbPf7QTPfrLP4RWUTYzdFUS_9T_A2bV3WNXcSgJPJRG2eRzOMJzlMJ5EnQt1PjaYN2bdSnmWn98CidlA1eEYJWXx4rnFSDiK3TTrFGInmSQgnIvJoJeOAfEulFA44xELVM0qFp9AqRfyaYYPX2YkDcyCpz9KYSUIa3tf_DZAg-UNWZf0fRZC7phr4r15mG6NnXC6XUpMjhzBHYmkzv5U2qzkKm_C8Z1yZNtJiMnfVob5stKpUbLHncPtrHEi63rNjqLpZFBKhAr-L1eh_uRhqN_-k0fMT1rhbhkBfoUsevSNjD9kqooYaeEQh5jSMhiq2tnvo034JW4teJp-Z3FGWwrS8y9-zj9nNlW-MVRr0JJvH8qHuojMO5LsIwL9cCXHWLhxGdStK617Dqk2OC1Eyg2DH19LGujTxSVRVAAkur5aBeQE9945JnNqkuhX1VsIr-PGcADthz93cAxM9oZD-6aPA5S1I90Q0VKEk0rjpY7K8xacjc3Fg-yc_e7DkmCw7YUOyZGKzAsbVtQBF2-mCoZ0nli9M81iaK2hY9gzQB2MkMjoTJCyL0ndVfPhV1Vo1plSMuNx00sRxwg9dDoOXjsqX3rssEFmmMo2Zm9rjAvAbVbxQSAoamHojNcPjigDYjQ.o_P8o79HVLo2Kbs4VHk8zg"
+							},
+							{
+								"key": "x-request-origin",
+								"value": "WEB"
+							},
+							{
+								"key": "x-username",
+								"value": "paulinho@gmail.com"
+							},
+							{
+								"key": "x-visitorid",
+								"value": "de52d9e4-9f74-4176-8b79-a98d55a56193"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"operationName\": \"loadDeliveryOptionsMessages\",\n    \"variables\": {},\n    \"query\": \"query loadDeliveryOptionsMessages {\\n  loadDeliveryOptions {\\n    deliveryOptions {\\n      deliveryMethods\\n      schedules\\n      scheduleDateTimes {\\n        date\\n        times {\\n          startAt\\n          endAt\\n        }\\n      }\\n      pickupPocs {\\n        id\\n        tradingName\\n        category\\n        operatingHours {\\n          start\\n          end\\n          weekDay\\n        }\\n        address {\\n          street\\n          latitude\\n          longitude\\n          number\\n          addressLine2\\n          city\\n          province\\n        }\\n      }\\n    }\\n    messages {\\n      category\\n      target\\n      args\\n      key\\n      message\\n    }\\n    events\\n  }\\n}\\n\"\n}"
+						},
+						"url": {
+							"raw": "https://api.release.ze.delivery/public-api",
+							"protocol": "https",
+							"host": [
+								"api",
+								"release",
+								"ze",
+								"delivery"
+							],
+							"path": [
+								"public-api"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "loadVerifiedCheckout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Origin",
+								"value": "https://release.web.ze.delivery"
+							},
+							{
+								"key": "Referer",
+								"value": "https://release.web.ze.delivery/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36"
+							},
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"101\", \"Google Chrome\";v=\"101\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"macOS\""
+							},
+							{
+								"key": "x-accesstoken",
+								"value": "eyJraWQiOiJtVkU3OWZ5M0QrV3JZTUU5MGN6TytoN1dJaG5QalFNM3NrSFwvUlRqZTlxdz0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI1NmQ5NGVjMy04YWFjLTQ3MjgtYmFhMi1hYWNhZGJiYzk0ODUiLCJldmVudF9pZCI6ImU3ZjBlNzcyLWVmZDctNDVlZC1hZmM4LWNhZTcyZjg4N2Y0MSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE2NTM2MjE3MDcsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy13ZXN0LTIuYW1hem9uYXdzLmNvbVwvdXMtd2VzdC0yX1JKNVdWQnhoSCIsImV4cCI6MTY1MzcwODEwNiwiaWF0IjoxNjUzNjIxNzA3LCJqdGkiOiI5YjFlOTc1Yi04OTRmLTRlZDctODBhMC04MDU1ZTBlN2FlNGEiLCJjbGllbnRfaWQiOiIzMmhnMWVoYTRxczc5cnA1ZDdzcXFobzQ1bCIsInVzZXJuYW1lIjoiZDc4ODljYzQtNDE0OC01YTliLTkxM2UtZTExOWJkNTIyMDA2In0.KzhfTnUGf1GgLx9JTIwdN3_Ecl_ZzSGnVtbWISnrbcmrrfrI3XJlHEn8LCrOrmkWdB_BtlAdYY0pLjzN35SoJV3iil4dJPK56dJkXmmdlYfQuXromer9j8KaEKPfLtSuKaWDFT3h3dZqMKb7zlqc7Ui42EGOnN8xeT3a608l9MJBpCCLlCfJGzD6uRaDhTRW-h6uxBYVJJPzJ6BgzlMIbCTupuZSRv8i6xN1LkzQvjMSHOMEBmCISAiYefsu4-LSvgi8WNGmBaO8PXzJRjgmEjzW2seI_PtHuRff4mzOPo5jbqDyJy3aRvixSbKGgsjxSxXM4KSclMl_9EgpfEwjrQ"
+							},
+							{
+								"key": "x-refreshtoken",
+								"value": "eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.mfWcmt_PWCwW-Z_bZJ9AP8L735fOMsDkuYrdMp75V7y6eAD5FxsJGCgPsLxdf-9ol9HgZ0-wisxpmqG1UiE4Od8l-C6rOMP-KTH_JaqydtGzOE8KdBT7OYDunXuI2IjTNOYblSehrDa0qw_TEUnNEPqjFUNVRUbaCmHwn-K_80jk55zDeEyKRdhOQ_nqvpWG0qKCdXBizf75SpF6lH4RmLh-fSTV50Kiw1FQd1vUekx4dJ5rqOSu7BPnQbO0OakSgkZOz-uqFC7reiobIUGvX1cHk-YJTgJ6BApkbgrWktE5VwZqcHaEtWVqcwhdwjmI__76ZmXUXhmt7ijc6NmdfQ.ISM6dx6jWKIilSlF.QrORhSFnvPPjoXQ-INXSl8Vs4kA-qlQHLRHaW80F-D9roIkDgx0paRw4PeVHtMnA_CrCtEXHxQ-Wt97J93A15tDfo5G7Gy6tu5F826YUiIF4_vJAYjKMBgW8eg3C39pA053LNX_2dLPAPUnlxNf16J_rMSHQEnGuyvmEhSSi9oXAxL7-nrrhO4trzXnVukp0EQ1nif2ch8EqXBOSA3SxM5Qa0IEfDbRH3eu0U76leFChtNWPvRzU7eXDaAd9vIB9wYmPUET1vefKXuiuwFmXaf2It4tKFFogIt5A3FYeuDgkVnU8Cix4J3hUjUSq2fm4Duae9JXZm52zcjBnEYJo-jrZk9HRnonQP3z6v4uWnHQUVeHh8mrGt3zQuQkBP6w_N6yFAgsWWDxM_7ofziwZQy2-hXxgLPUyu3acpLW8Ug_Pj3RMM9eOEwD9DqJ5nphc3hpPSns7hYBIKJG-yMnFqzxEgVqOp4sDjqG_juFFfdFu3c3nQQ4AMIPReEPW8sIkYWYO-1DH4GxT9dXIgWabROP-llPhdOgAX2xLXKMA9TwucpZtmM7QAfFtx0RHOSxiffJ2sSXNuMtER-SOKkJGY9wcaYtTMwhCmGCtHSpH_0XIh2WTeDLSDGyatcHfNtL1-pzag4JzCv8t7qEEm-ELuksUCSshVts3wiurv_tNLyjpKmthD2OzuQfIbPf7QTPfrLP4RWUTYzdFUS_9T_A2bV3WNXcSgJPJRG2eRzOMJzlMJ5EnQt1PjaYN2bdSnmWn98CidlA1eEYJWXx4rnFSDiK3TTrFGInmSQgnIvJoJeOAfEulFA44xELVM0qFp9AqRfyaYYPX2YkDcyCpz9KYSUIa3tf_DZAg-UNWZf0fRZC7phr4r15mG6NnXC6XUpMjhzBHYmkzv5U2qzkKm_C8Z1yZNtJiMnfVob5stKpUbLHncPtrHEi63rNjqLpZFBKhAr-L1eh_uRhqN_-k0fMT1rhbhkBfoUsevSNjD9kqooYaeEQh5jSMhiq2tnvo034JW4teJp-Z3FGWwrS8y9-zj9nNlW-MVRr0JJvH8qHuojMO5LsIwL9cCXHWLhxGdStK617Dqk2OC1Eyg2DH19LGujTxSVRVAAkur5aBeQE9945JnNqkuhX1VsIr-PGcADthz93cAxM9oZD-6aPA5S1I90Q0VKEk0rjpY7K8xacjc3Fg-yc_e7DkmCw7YUOyZGKzAsbVtQBF2-mCoZ0nli9M81iaK2hY9gzQB2MkMjoTJCyL0ndVfPhV1Vo1plSMuNx00sRxwg9dDoOXjsqX3rssEFmmMo2Zm9rjAvAbVbxQSAoamHojNcPjigDYjQ.o_P8o79HVLo2Kbs4VHk8zg"
+							},
+							{
+								"key": "x-request-origin",
+								"value": "WEB"
+							},
+							{
+								"key": "x-username",
+								"value": "paulinho@gmail.com"
+							},
+							{
+								"key": "x-visitorid",
+								"value": "de52d9e4-9f74-4176-8b79-a98d55a56193"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"operationName\": \"loadVerifiedCheckout\",\n    \"variables\": {},\n    \"query\": \"query loadVerifiedCheckout {\\n  loadVerifiedCheckout {\\n    checkout {\\n      id\\n      deliveryOption {\\n        address {\\n          latitude\\n          longitude\\n          zipcode\\n          country\\n          province\\n          city\\n          neighborhood\\n          street\\n          number\\n          addressLine2\\n        }\\n        scheduleDateTime\\n        schedule\\n        deliveryMethod\\n        pickupPoc {\\n          id\\n          tradingName\\n          address {\\n            latitude\\n            longitude\\n            zipcode\\n            country\\n            province\\n            city\\n            neighborhood\\n            street\\n            number\\n            addressLine2\\n          }\\n        }\\n      }\\n      totalLineItemsPrice\\n      totalOfProducts\\n      totalDiscount\\n      subtotalPrice\\n      totalPrice\\n      change\\n    }\\n    messages {\\n      key\\n      target\\n      message\\n      category\\n    }\\n  }\\n}\\n\"\n}"
+						},
+						"url": {
+							"raw": "https://api.release.ze.delivery/public-api",
+							"protocol": "https",
+							"host": [
+								"api",
+								"release",
+								"ze",
+								"delivery"
+							],
+							"path": [
+								"public-api"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "loadOrdersInProgress",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Origin",
+								"value": "https://release.web.ze.delivery"
+							},
+							{
+								"key": "Referer",
+								"value": "https://release.web.ze.delivery/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36"
+							},
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"101\", \"Google Chrome\";v=\"101\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"macOS\""
+							},
+							{
+								"key": "x-accesstoken",
+								"value": "eyJraWQiOiJtVkU3OWZ5M0QrV3JZTUU5MGN6TytoN1dJaG5QalFNM3NrSFwvUlRqZTlxdz0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI1NmQ5NGVjMy04YWFjLTQ3MjgtYmFhMi1hYWNhZGJiYzk0ODUiLCJldmVudF9pZCI6ImU3ZjBlNzcyLWVmZDctNDVlZC1hZmM4LWNhZTcyZjg4N2Y0MSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE2NTM2MjE3MDcsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy13ZXN0LTIuYW1hem9uYXdzLmNvbVwvdXMtd2VzdC0yX1JKNVdWQnhoSCIsImV4cCI6MTY1MzcwODEwNiwiaWF0IjoxNjUzNjIxNzA3LCJqdGkiOiI5YjFlOTc1Yi04OTRmLTRlZDctODBhMC04MDU1ZTBlN2FlNGEiLCJjbGllbnRfaWQiOiIzMmhnMWVoYTRxczc5cnA1ZDdzcXFobzQ1bCIsInVzZXJuYW1lIjoiZDc4ODljYzQtNDE0OC01YTliLTkxM2UtZTExOWJkNTIyMDA2In0.KzhfTnUGf1GgLx9JTIwdN3_Ecl_ZzSGnVtbWISnrbcmrrfrI3XJlHEn8LCrOrmkWdB_BtlAdYY0pLjzN35SoJV3iil4dJPK56dJkXmmdlYfQuXromer9j8KaEKPfLtSuKaWDFT3h3dZqMKb7zlqc7Ui42EGOnN8xeT3a608l9MJBpCCLlCfJGzD6uRaDhTRW-h6uxBYVJJPzJ6BgzlMIbCTupuZSRv8i6xN1LkzQvjMSHOMEBmCISAiYefsu4-LSvgi8WNGmBaO8PXzJRjgmEjzW2seI_PtHuRff4mzOPo5jbqDyJy3aRvixSbKGgsjxSxXM4KSclMl_9EgpfEwjrQ"
+							},
+							{
+								"key": "x-refreshtoken",
+								"value": "eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.mfWcmt_PWCwW-Z_bZJ9AP8L735fOMsDkuYrdMp75V7y6eAD5FxsJGCgPsLxdf-9ol9HgZ0-wisxpmqG1UiE4Od8l-C6rOMP-KTH_JaqydtGzOE8KdBT7OYDunXuI2IjTNOYblSehrDa0qw_TEUnNEPqjFUNVRUbaCmHwn-K_80jk55zDeEyKRdhOQ_nqvpWG0qKCdXBizf75SpF6lH4RmLh-fSTV50Kiw1FQd1vUekx4dJ5rqOSu7BPnQbO0OakSgkZOz-uqFC7reiobIUGvX1cHk-YJTgJ6BApkbgrWktE5VwZqcHaEtWVqcwhdwjmI__76ZmXUXhmt7ijc6NmdfQ.ISM6dx6jWKIilSlF.QrORhSFnvPPjoXQ-INXSl8Vs4kA-qlQHLRHaW80F-D9roIkDgx0paRw4PeVHtMnA_CrCtEXHxQ-Wt97J93A15tDfo5G7Gy6tu5F826YUiIF4_vJAYjKMBgW8eg3C39pA053LNX_2dLPAPUnlxNf16J_rMSHQEnGuyvmEhSSi9oXAxL7-nrrhO4trzXnVukp0EQ1nif2ch8EqXBOSA3SxM5Qa0IEfDbRH3eu0U76leFChtNWPvRzU7eXDaAd9vIB9wYmPUET1vefKXuiuwFmXaf2It4tKFFogIt5A3FYeuDgkVnU8Cix4J3hUjUSq2fm4Duae9JXZm52zcjBnEYJo-jrZk9HRnonQP3z6v4uWnHQUVeHh8mrGt3zQuQkBP6w_N6yFAgsWWDxM_7ofziwZQy2-hXxgLPUyu3acpLW8Ug_Pj3RMM9eOEwD9DqJ5nphc3hpPSns7hYBIKJG-yMnFqzxEgVqOp4sDjqG_juFFfdFu3c3nQQ4AMIPReEPW8sIkYWYO-1DH4GxT9dXIgWabROP-llPhdOgAX2xLXKMA9TwucpZtmM7QAfFtx0RHOSxiffJ2sSXNuMtER-SOKkJGY9wcaYtTMwhCmGCtHSpH_0XIh2WTeDLSDGyatcHfNtL1-pzag4JzCv8t7qEEm-ELuksUCSshVts3wiurv_tNLyjpKmthD2OzuQfIbPf7QTPfrLP4RWUTYzdFUS_9T_A2bV3WNXcSgJPJRG2eRzOMJzlMJ5EnQt1PjaYN2bdSnmWn98CidlA1eEYJWXx4rnFSDiK3TTrFGInmSQgnIvJoJeOAfEulFA44xELVM0qFp9AqRfyaYYPX2YkDcyCpz9KYSUIa3tf_DZAg-UNWZf0fRZC7phr4r15mG6NnXC6XUpMjhzBHYmkzv5U2qzkKm_C8Z1yZNtJiMnfVob5stKpUbLHncPtrHEi63rNjqLpZFBKhAr-L1eh_uRhqN_-k0fMT1rhbhkBfoUsevSNjD9kqooYaeEQh5jSMhiq2tnvo034JW4teJp-Z3FGWwrS8y9-zj9nNlW-MVRr0JJvH8qHuojMO5LsIwL9cCXHWLhxGdStK617Dqk2OC1Eyg2DH19LGujTxSVRVAAkur5aBeQE9945JnNqkuhX1VsIr-PGcADthz93cAxM9oZD-6aPA5S1I90Q0VKEk0rjpY7K8xacjc3Fg-yc_e7DkmCw7YUOyZGKzAsbVtQBF2-mCoZ0nli9M81iaK2hY9gzQB2MkMjoTJCyL0ndVfPhV1Vo1plSMuNx00sRxwg9dDoOXjsqX3rssEFmmMo2Zm9rjAvAbVbxQSAoamHojNcPjigDYjQ.o_P8o79HVLo2Kbs4VHk8zg"
+							},
+							{
+								"key": "x-request-origin",
+								"value": "WEB"
+							},
+							{
+								"key": "x-username",
+								"value": "paulinho@gmail.com"
+							},
+							{
+								"key": "x-visitorid",
+								"value": "de52d9e4-9f74-4176-8b79-a98d55a56193"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"operationName\": \"loadOrdersInProgress\",\n    \"variables\": {\n        \"limit\": 9\n    },\n    \"query\": \"query loadOrdersInProgress($limit: Int) {\\n  loadOrdersInProgress(limit: $limit) {\\n    id\\n    number\\n  }\\n}\\n\"\n}"
+						},
+						"url": {
+							"raw": "https://api.release.ze.delivery/public-api",
+							"protocol": "https",
+							"host": [
+								"api",
+								"release",
+								"ze",
+								"delivery"
+							],
+							"path": [
+								"public-api"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "sellerLogin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "authority",
+						"value": "seller-api.release.ze.delivery"
+					},
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "accept-language",
+						"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "authorization",
+						"value": "eyJraWQiOiJDNUJydzRmbjg2bWxvWkxxTXZDRDNcLzMrTTBhejZDZWFpM1lXRFd4U1N2UT0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI5ZDYzNzRiNS00ZDA0LTRiNTgtYTE4MS0zM2M3YTkwYWIyZTAiLCJldmVudF9pZCI6IjUyOTJiMTJkLTk1MjAtNGY5Zi04OTQ1LTIwOWU3YTg0ZTA2MCIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE2NTMzNDExODksImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy13ZXN0LTIuYW1hem9uYXdzLmNvbVwvdXMtd2VzdC0yX2E0RlU5Q29lMSIsImV4cCI6MTY1MzUxNzkyOSwiaWF0IjoxNjUzNDMxNTI5LCJqdGkiOiI3Yzk4NDA4Ni00ZjBhLTRmYmMtYTA2OC02Zjc1OTFlZDY0YWEiLCJjbGllbnRfaWQiOiIzbTZkZzJzZTF0czQ0azRlcTZ1OGo2amU5NiIsInVzZXJuYW1lIjoiZ3VzdGF2b2ZmaW5vQGdtYWlsLmNvbSJ9.hdtgc5bndNmKt26TEYObBx-SRU4nwOzVtf73XfjoB0cb4jU1rdKFRqEdggZgT3IgIk-WCDowr-gXfpCkhOL5YD-nzUIGwdgn8bdFNAkgtuo7gulCI3qmk9QazZWt5cMf1CrukI5fMIH5yEp9EFqqFwW9UQOUjipMK5YwXHcKC2TGmCfOA6Tq6_ck6CRrJMPQCLGKm_af9_Dlf7eJSplsxKrRxHFr1nlOKe1Bc2O8tl2Cf1E8Y0R2AhxlpmRxN4SUPsnHxNX0rWXaZub-La-_x0qPiw39Of7IgZYx3N07SWHHIUrK4fJjBRl93Sv_XFkk2A0sjx6P_71MiVOAZ91MBg"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "origin",
+						"value": "https://release.seller.ze.delivery"
+					},
+					{
+						"key": "referer",
+						"value": "https://release.seller.ze.delivery/"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"101\", \"Google Chrome\";v=\"101\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"macOS\""
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-site"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36"
+					},
+					{
+						"key": "x-request-origin",
+						"value": "ADMIN"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"operationName\": \"sellerLogin\",\n    \"variables\": {\n        \"username\": \"gustavoffino@gmail.com\",\n        \"password\": \"password123\"\n    },\n    \"query\": \"mutation sellerLogin($username: String!, $password: String!) {\\n  login(username: $username, password: $password) {\\n    accessToken\\n    refreshToken\\n    username\\n    __typename\\n  }\\n}\\n\"\n}"
+				},
+				"url": {
+					"raw": "https://seller-api.release.ze.delivery/release/graphql",
+					"protocol": "https",
+					"host": [
+						"seller-api",
+						"release",
+						"ze",
+						"delivery"
+					],
+					"path": [
+						"release",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "identityLogin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var response_body = JSON.parse(responseBody);",
+							"identities = response_body.data.identityLogin;",
+							"postman.setEnvironmentVariable(\"access_token\", identities.accessToken);",
+							"postman.setEnvironmentVariable(\"refresh_token\", identities.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Origin",
+						"value": "https://release.web.ze.delivery"
+					},
+					{
+						"key": "Referer",
+						"value": "https://release.web.ze.delivery/"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "empty"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-site"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36"
+					},
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"101\", \"Google Chrome\";v=\"101\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"macOS\""
+					},
+					{
+						"key": "x-request-origin",
+						"value": "WEB"
+					},
+					{
+						"key": "x-visitorid",
+						"value": "de52d9e4-9f74-4176-8b79-a98d55a56193"
+					}
+				],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation identityLogin($email: String!, $password: String!) {\n    identityLogin(email: $email, password: $password) {\n        accessToken\n        refreshToken\n        consumer {\n            mainEmail\n            name\n            phoneNumber      \n            birthDate\n            document\n            phoneNumberValidated\n        }\n        messages {\n            key\n            category\n            message\n        }\n    }\n}\n",
+						"variables": "{\n    \"email\": \"jorge.rabello3@gmail.com\",\n    \"password\": \"Ma53174310!\"\n}"
+					}
+				},
+				"url": {
+					"raw": "https://api.release.ze.delivery/public-api",
+					"protocol": "https",
+					"host": [
+						"api",
+						"release",
+						"ze",
+						"delivery"
+					],
+					"path": [
+						"public-api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listAvailablePaymentMethods",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Origin",
+						"value": "https://release.web.ze.delivery"
+					},
+					{
+						"key": "Referer",
+						"value": "https://release.web.ze.delivery/"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "empty"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-site"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36"
+					},
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"101\", \"Google Chrome\";v=\"101\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"macOS\""
+					},
+					{
+						"key": "x-accesstoken",
+						"value": "{{access_token}}"
+					},
+					{
+						"key": "x-refreshtoken",
+						"value": "{{refresh_token}}"
+					},
+					{
+						"key": "x-request-origin",
+						"value": "WEB"
+					},
+					{
+						"key": "x-username",
+						"value": "jorge.rabello3@gmail.com"
+					},
+					{
+						"key": "x-visitorid",
+						"value": "de52d9e4-9f74-4176-8b79-a98d55a56193"
+					}
+				],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query checkoutQuery {\n    listAvailablePaymentMethods {\n        id\n        displayName\n        image\n        paymentType\n        category\n  } loadVerifiedCheckout {\n      checkout {\n          id\n          change\n          lineItems {\n              id\n              displayName\n              images\n              category {\n                  id\n                  displayName                  \n              }\n              price {\n                  min\n                  max\n            }\n            amount\n            applicableDiscount {\n                presentedDiscountValue\n                discountType\n                finalValue\n            }\n          }\n          shipping {\n              price\n            }\n            deliveryOption {\n                address {\n                    latitude\n                    longitude     \n                    zipcode\n                    country\n                    province\n                    city\n                    neighborhood\n                    street\n                    number\n                    addressLine2                           \n                }\n                scheduleDateTime\n                schedule\n                deliveryMethod\n                pickupPoc {\n                    id\n                    tradingName\n                    address {\n                        latitude\n                        longitude\n                        zipcode\n                        country\n                        province\n                        city\n                        neighborhood\n                        street\n                        number\n                        addressLine2\n                    }\n                }\n            }\n            paymentMethod {\n                id\n                displayName\n                image\n                paymentType\n            }            \n            totalOfProducts\n            subtotalPrice\n            totalPrice\n            totalLineItemsPrice\n            attachment {\n                comment\n            }\n            discount {\n                code\n                value\n                valueType\n            }            \n            totalDiscount\n            ordersMinPrice            \n        }\n        messages {\n            key\n            target\n            message\n            category\n        }\n    }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://api.release.ze.delivery/public-api",
+					"protocol": "https",
+					"host": [
+						"api",
+						"release",
+						"ze",
+						"delivery"
+					],
+					"path": [
+						"public-api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "loadOrder",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Origin",
+						"value": "https://release.web.ze.delivery"
+					},
+					{
+						"key": "Referer",
+						"value": "https://release.web.ze.delivery/"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "empty"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-site"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36"
+					},
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"101\", \"Google Chrome\";v=\"101\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"macOS\""
+					},
+					{
+						"key": "x-accesstoken",
+						"value": "eyJraWQiOiJtVkU3OWZ5M0QrV3JZTUU5MGN6TytoN1dJaG5QalFNM3NrSFwvUlRqZTlxdz0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIxYmY2NWM4Ny0wOGUxLTRiOWEtYjUxZS1hZmMzNTdmOTM2NjQiLCJldmVudF9pZCI6Ijk0M2Q0YzdiLThiYTEtNGQxOS1iZjRhLTQzNjA3N2JhZTc3NCIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE2NTMzNTgzNjIsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy13ZXN0LTIuYW1hem9uYXdzLmNvbVwvdXMtd2VzdC0yX1JKNVdWQnhoSCIsImV4cCI6MTY1MzUzMzY1MywiaWF0IjoxNjUzNDQ3MjUzLCJqdGkiOiJlNzNiZjg2Yi05NTM3LTQzNTQtYThmOC01YzcyNDIzYTk1Y2EiLCJjbGllbnRfaWQiOiIzMmhnMWVoYTRxczc5cnA1ZDdzcXFobzQ1bCIsInVzZXJuYW1lIjoiYjc0MjllYTItMmRkOS01MjIyLTgzZGItMGU2YWMyZTZiNTU0In0.Rgho9A-Sh4P8UDobx_JxsGAkGEg0NUt2s61-JleN7HnlgFj-e1yTug3XFcaV6AuGpbT8K7hpw1lRxbDtKjZPD_LQf9t637_cJ4JgUCCyJc_tWZZtxyh_hgfmBBMy7DOaCXmHefjzFu6nbtZv-jrYYoiiCvYGLedRXAQHpRn0N2wDzEdElHot-VI7rmZT0htz9zABR-3EBvoLrQZPrq4Vf_jNPsVSY_1q2TGLToa50ruofEe9zkNLyCpQdlJ3Hlc6Lhy0I3XUG-eK_y1wvgFW1E9JY4GzpEyh3RdUxwBELvKmGIUiUe0_rwI6gYHMs33622KAVnHSO6PguPCcU2EtxA"
+					},
+					{
+						"key": "x-refreshtoken",
+						"value": "eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.XHnvuvteHkwlixfRR8i-iXVLCyMZPFFC9dA8JjHX6L2kavzu4CrnCpwKGWDmgBPYLWHa6f_VIJFXYWFm2yDA6_8liwm7gluxjpavDT271y253WbJL7YMoO7pveOxXtAz0ITucPZ8jFKg1ee7qmWhpDDlk05r0e_UPtTstSevswyy4WSrykmJyOarcLPWqfJSLdNJ-Pxy7ePkuDGnbnBR7zJ2M5VclEGLIrJfCCj00ggfv4c9a1qi0JPigSc_iaX977ZWokgUPSn5zchPOk1n-0rpGkCMGyzIE8C2Czz9vE505kwdt9KOKDbTNNjP2bhlQAocvJ-nIYycho-UYneI9g.kTVQ1FMvMlSmDBiK.4_aYaZJSd-lAkrQnQWHFjoaZ0f82QKSme1dw1drQbDE5lIffnpX8b6VMrqihgI4sxDKFkhcBDKvh05G1GdEZXljGUB92xi5h0-xIPo8xru9ek-5Yjit67ESdxn_FiZSDPfXZVItjySgv9jL1KsPcarRD3P7LCCz7hm5PDyzYQVLbg6FXYNLI7TrkBQh0nmVf9F7YvT1PriM32tiBSvy9niU-nkaPupsuFRdOjB6xYU1142RyranwXfkPdutwNR_adDr30yzJZQOHI9UmBM16vqZRTaLWYS8RP7LzRHHtXwU9-gowpLCPLnc3bpNLiwjT997rnjZwbpcdy9QGjBKNy3P-aVfqkUrhNmU0o0uO8Jcsgd21UADQOxTXwV--4OC0dP_2i13ytxUcG31jZA8le5hGt-Mbtp09qBna-BXZh4k3Mg2Eyt-NVHHc0qe_zR8kvfKCXaIlfJdo2zrGgc8TLO5byTjfamQQnqEYlJEOXJUQm2TTtSo9RtqB_HTDcn95bpVW6qm8dw6P8lbFeLRzc0Ikkq-0xNUS3h36s6mKBfo9TTyqGMMb00o2zS0AmWvrrvJxHN9zvD5DfBOfgfj-P7d-6a4rx1pLZlxHt5aHpIRB14EivGuFKCXYshsCg_fgr5fRe-nankaunhbykc84lbnfkxqunfFM5hhOJiSPqPTIjRCl2cNLT1xzJzb-nvwmwSteyU2OT6kC5cV8HuVBef36hBVH8qqig23nQQBVN_Ggv3h1unxrOMgmXg6OsbLk83Bq9R0fZGqHqGbhO06AKVIh-XmnHuMNH8xukIXCZYE1QcuhmWWY-1AfCvVS13lgL2i5ztfFgISiecuoJmVtrTlCF2AGKPmFolVwImcD6T-r3GdsYXNBZgB8aFhTDTR6pjscLhiZguJU21_NSkBvwq-D59ytZIWmC_e-vZSn8tb3CHTeEwot6zIlzLMsBUhbHA75IEdaOAHhkplm7ZDif27xKoqWQDyTquSjYe3qaAT-Z1vFwGquis32iz9JOYNC35exgUd_CIpM-LWgvkLZiy8b9_dDwU0FAku-JbJAiVwzY2qPGBMr-u0si9fs_Q0TxpHenFHHUQZHfC3N7yQo4pAVchPnLvdtyFjh5bKmlKz3ziIgctIAWd7Fq2XoZHsbtgIVktSt5kCU0rxkgyJFl1PMmyC8RXuYfVFZTpVTPTlyV8j1rBjfud7kB-pkLJcaMxl4zYBzG0Z7yPOjuUSQOAs-7Wxa76ma8IgaMPDAM4yHXPmsL5nvCOKqWHuZYre8yZbC5_w4m_EEAUCnvgntLd04WBPSWflcVauXB_m0VEShx8rbHJXWkRsT4Q.N18P0FUQTWIyCc2X1yJlNQ"
+					},
+					{
+						"key": "x-request-origin",
+						"value": "WEB"
+					},
+					{
+						"key": "x-username",
+						"value": "jorge.rabello3@gmail.com"
+					},
+					{
+						"key": "x-visitorid",
+						"value": "de52d9e4-9f74-4176-8b79-a98d55a56193"
+					}
+				],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query loadOrder($orderNumber: String!) {\n    loadOrder(orderNumber: $orderNumber) {\n        order {\n            number\n            createdDate\n            totalItemsPrice\n            totalDiscount\n            totalPrice\n            change\n            statusesHistory {\n                status\n                createdDate\n            }\n            deliveryOption {\n                address {\n                    latitude\n                    longitude\n                    zipcode\n                    country\n                    province\n                    city\n                    neighborhood\\n          street\\n          number\\n          addressLine2\\n        }\\n        scheduleDateTime\\n        schedule\\n        deliveryMethod\\n        pickupPoc {\\n          id\\n          tradingName\\n          address {\\n            latitude\\n            longitude\\n            zipcode\\n            country\\n            province\\n            city\\n            neighborhood\\n            street\\n            number\\n            addressLine2\\n          }\\n        }\\n        deliveryForecast\\n      }\\n      shipping {\\n        price\\n      }\\n      paymentMethod {\\n        id\\n        displayName\\n        image\\n        paymentType\\n        category\\n        lastCardDigits\\n        cardBrand\\n      }\\n      poc {\\n        id\\n        tradingName\\n        contactPhoneNumber\\n        address {\\n          street\\n          addressLine2\\n          number\\n          city\\n          province\\n        }\\n        operatingHours {\\n          start\\n          end\\n          weekDay\\n        }\\n      }\\n      timeline {\\n        localizedTime\\n        type\\n        title\\n        key\\n      }\\n      canBeCanceled\\n      lineItems {\\n        id\\n        category {\\n          id\\n          displayName\\n        }\\n        brand {\\n          id\\n          displayName\\n        }\\n        displayName\\n        quantity\\n        images\\n        totalPrice\\n        totalDiscount\\n      }\\n      attachment {\\n        comment\\n      }\\n      discount {\\n        code\\n        value\\n        valueType\\n      }\\n    }\\n    messages {\\n      category\\n      target\\n      key\\n      args\\n      message\\n    }\\n  }\\n  listContactRateTypes {\\n    key\\n    message\\n  }\\n}\\n\"",
+						"variables": "{\n    \"orderNumber\": \"351883253\"\n}"
+					}
+				},
+				"url": {
+					"raw": "https://api.release.ze.delivery/public-api",
+					"protocol": "https",
+					"host": [
+						"api",
+						"release",
+						"ze",
+						"delivery"
+					],
+					"path": [
+						"public-api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listReasonsToCancelOrder",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Origin",
+						"value": "https://release.web.ze.delivery"
+					},
+					{
+						"key": "Referer",
+						"value": "https://release.web.ze.delivery/"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "empty"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-site"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36"
+					},
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"101\", \"Google Chrome\";v=\"101\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"macOS\""
+					},
+					{
+						"key": "x-accesstoken",
+						"value": "eyJraWQiOiJtVkU3OWZ5M0QrV3JZTUU5MGN6TytoN1dJaG5QalFNM3NrSFwvUlRqZTlxdz0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIxYmY2NWM4Ny0wOGUxLTRiOWEtYjUxZS1hZmMzNTdmOTM2NjQiLCJldmVudF9pZCI6Ijk0M2Q0YzdiLThiYTEtNGQxOS1iZjRhLTQzNjA3N2JhZTc3NCIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE2NTMzNTgzNjIsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy13ZXN0LTIuYW1hem9uYXdzLmNvbVwvdXMtd2VzdC0yX1JKNVdWQnhoSCIsImV4cCI6MTY1MzUzMzY1MywiaWF0IjoxNjUzNDQ3MjUzLCJqdGkiOiJlNzNiZjg2Yi05NTM3LTQzNTQtYThmOC01YzcyNDIzYTk1Y2EiLCJjbGllbnRfaWQiOiIzMmhnMWVoYTRxczc5cnA1ZDdzcXFobzQ1bCIsInVzZXJuYW1lIjoiYjc0MjllYTItMmRkOS01MjIyLTgzZGItMGU2YWMyZTZiNTU0In0.Rgho9A-Sh4P8UDobx_JxsGAkGEg0NUt2s61-JleN7HnlgFj-e1yTug3XFcaV6AuGpbT8K7hpw1lRxbDtKjZPD_LQf9t637_cJ4JgUCCyJc_tWZZtxyh_hgfmBBMy7DOaCXmHefjzFu6nbtZv-jrYYoiiCvYGLedRXAQHpRn0N2wDzEdElHot-VI7rmZT0htz9zABR-3EBvoLrQZPrq4Vf_jNPsVSY_1q2TGLToa50ruofEe9zkNLyCpQdlJ3Hlc6Lhy0I3XUG-eK_y1wvgFW1E9JY4GzpEyh3RdUxwBELvKmGIUiUe0_rwI6gYHMs33622KAVnHSO6PguPCcU2EtxA"
+					},
+					{
+						"key": "x-refreshtoken",
+						"value": "eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.XHnvuvteHkwlixfRR8i-iXVLCyMZPFFC9dA8JjHX6L2kavzu4CrnCpwKGWDmgBPYLWHa6f_VIJFXYWFm2yDA6_8liwm7gluxjpavDT271y253WbJL7YMoO7pveOxXtAz0ITucPZ8jFKg1ee7qmWhpDDlk05r0e_UPtTstSevswyy4WSrykmJyOarcLPWqfJSLdNJ-Pxy7ePkuDGnbnBR7zJ2M5VclEGLIrJfCCj00ggfv4c9a1qi0JPigSc_iaX977ZWokgUPSn5zchPOk1n-0rpGkCMGyzIE8C2Czz9vE505kwdt9KOKDbTNNjP2bhlQAocvJ-nIYycho-UYneI9g.kTVQ1FMvMlSmDBiK.4_aYaZJSd-lAkrQnQWHFjoaZ0f82QKSme1dw1drQbDE5lIffnpX8b6VMrqihgI4sxDKFkhcBDKvh05G1GdEZXljGUB92xi5h0-xIPo8xru9ek-5Yjit67ESdxn_FiZSDPfXZVItjySgv9jL1KsPcarRD3P7LCCz7hm5PDyzYQVLbg6FXYNLI7TrkBQh0nmVf9F7YvT1PriM32tiBSvy9niU-nkaPupsuFRdOjB6xYU1142RyranwXfkPdutwNR_adDr30yzJZQOHI9UmBM16vqZRTaLWYS8RP7LzRHHtXwU9-gowpLCPLnc3bpNLiwjT997rnjZwbpcdy9QGjBKNy3P-aVfqkUrhNmU0o0uO8Jcsgd21UADQOxTXwV--4OC0dP_2i13ytxUcG31jZA8le5hGt-Mbtp09qBna-BXZh4k3Mg2Eyt-NVHHc0qe_zR8kvfKCXaIlfJdo2zrGgc8TLO5byTjfamQQnqEYlJEOXJUQm2TTtSo9RtqB_HTDcn95bpVW6qm8dw6P8lbFeLRzc0Ikkq-0xNUS3h36s6mKBfo9TTyqGMMb00o2zS0AmWvrrvJxHN9zvD5DfBOfgfj-P7d-6a4rx1pLZlxHt5aHpIRB14EivGuFKCXYshsCg_fgr5fRe-nankaunhbykc84lbnfkxqunfFM5hhOJiSPqPTIjRCl2cNLT1xzJzb-nvwmwSteyU2OT6kC5cV8HuVBef36hBVH8qqig23nQQBVN_Ggv3h1unxrOMgmXg6OsbLk83Bq9R0fZGqHqGbhO06AKVIh-XmnHuMNH8xukIXCZYE1QcuhmWWY-1AfCvVS13lgL2i5ztfFgISiecuoJmVtrTlCF2AGKPmFolVwImcD6T-r3GdsYXNBZgB8aFhTDTR6pjscLhiZguJU21_NSkBvwq-D59ytZIWmC_e-vZSn8tb3CHTeEwot6zIlzLMsBUhbHA75IEdaOAHhkplm7ZDif27xKoqWQDyTquSjYe3qaAT-Z1vFwGquis32iz9JOYNC35exgUd_CIpM-LWgvkLZiy8b9_dDwU0FAku-JbJAiVwzY2qPGBMr-u0si9fs_Q0TxpHenFHHUQZHfC3N7yQo4pAVchPnLvdtyFjh5bKmlKz3ziIgctIAWd7Fq2XoZHsbtgIVktSt5kCU0rxkgyJFl1PMmyC8RXuYfVFZTpVTPTlyV8j1rBjfud7kB-pkLJcaMxl4zYBzG0Z7yPOjuUSQOAs-7Wxa76ma8IgaMPDAM4yHXPmsL5nvCOKqWHuZYre8yZbC5_w4m_EEAUCnvgntLd04WBPSWflcVauXB_m0VEShx8rbHJXWkRsT4Q.N18P0FUQTWIyCc2X1yJlNQ"
+					},
+					{
+						"key": "x-request-origin",
+						"value": "WEB"
+					},
+					{
+						"key": "x-username",
+						"value": "jorge.rabello3@gmail.com"
+					},
+					{
+						"key": "x-visitorid",
+						"value": "de52d9e4-9f74-4176-8b79-a98d55a56193"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"operationName\": \"listReasonsToCancelOrder\",\n    \"variables\": {\n        \"orderStatus\": \"PENDING\"\n    },\n    \"query\": \"query listReasonsToCancelOrder($orderStatus: String) {\\n  listReasonsToCancelOrder(orderStatus: $orderStatus) {\\n    key\\n    message\\n  }\\n}\\n\"\n}"
+				},
+				"url": {
+					"raw": "https://api.release.ze.delivery/public-api",
+					"protocol": "https",
+					"host": [
+						"api",
+						"release",
+						"ze",
+						"delivery"
+					],
+					"path": [
+						"public-api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listReasonsToCancelOrder",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Origin",
+						"value": "https://release.web.ze.delivery"
+					},
+					{
+						"key": "Referer",
+						"value": "https://release.web.ze.delivery/"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "empty"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-site"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36"
+					},
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"101\", \"Google Chrome\";v=\"101\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"macOS\""
+					},
+					{
+						"key": "x-accesstoken",
+						"value": "eyJraWQiOiJtVkU3OWZ5M0QrV3JZTUU5MGN6TytoN1dJaG5QalFNM3NrSFwvUlRqZTlxdz0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIxYmY2NWM4Ny0wOGUxLTRiOWEtYjUxZS1hZmMzNTdmOTM2NjQiLCJldmVudF9pZCI6Ijk0M2Q0YzdiLThiYTEtNGQxOS1iZjRhLTQzNjA3N2JhZTc3NCIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE2NTMzNTgzNjIsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy13ZXN0LTIuYW1hem9uYXdzLmNvbVwvdXMtd2VzdC0yX1JKNVdWQnhoSCIsImV4cCI6MTY1MzUzMzY1MywiaWF0IjoxNjUzNDQ3MjUzLCJqdGkiOiJlNzNiZjg2Yi05NTM3LTQzNTQtYThmOC01YzcyNDIzYTk1Y2EiLCJjbGllbnRfaWQiOiIzMmhnMWVoYTRxczc5cnA1ZDdzcXFobzQ1bCIsInVzZXJuYW1lIjoiYjc0MjllYTItMmRkOS01MjIyLTgzZGItMGU2YWMyZTZiNTU0In0.Rgho9A-Sh4P8UDobx_JxsGAkGEg0NUt2s61-JleN7HnlgFj-e1yTug3XFcaV6AuGpbT8K7hpw1lRxbDtKjZPD_LQf9t637_cJ4JgUCCyJc_tWZZtxyh_hgfmBBMy7DOaCXmHefjzFu6nbtZv-jrYYoiiCvYGLedRXAQHpRn0N2wDzEdElHot-VI7rmZT0htz9zABR-3EBvoLrQZPrq4Vf_jNPsVSY_1q2TGLToa50ruofEe9zkNLyCpQdlJ3Hlc6Lhy0I3XUG-eK_y1wvgFW1E9JY4GzpEyh3RdUxwBELvKmGIUiUe0_rwI6gYHMs33622KAVnHSO6PguPCcU2EtxA"
+					},
+					{
+						"key": "x-refreshtoken",
+						"value": "eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.XHnvuvteHkwlixfRR8i-iXVLCyMZPFFC9dA8JjHX6L2kavzu4CrnCpwKGWDmgBPYLWHa6f_VIJFXYWFm2yDA6_8liwm7gluxjpavDT271y253WbJL7YMoO7pveOxXtAz0ITucPZ8jFKg1ee7qmWhpDDlk05r0e_UPtTstSevswyy4WSrykmJyOarcLPWqfJSLdNJ-Pxy7ePkuDGnbnBR7zJ2M5VclEGLIrJfCCj00ggfv4c9a1qi0JPigSc_iaX977ZWokgUPSn5zchPOk1n-0rpGkCMGyzIE8C2Czz9vE505kwdt9KOKDbTNNjP2bhlQAocvJ-nIYycho-UYneI9g.kTVQ1FMvMlSmDBiK.4_aYaZJSd-lAkrQnQWHFjoaZ0f82QKSme1dw1drQbDE5lIffnpX8b6VMrqihgI4sxDKFkhcBDKvh05G1GdEZXljGUB92xi5h0-xIPo8xru9ek-5Yjit67ESdxn_FiZSDPfXZVItjySgv9jL1KsPcarRD3P7LCCz7hm5PDyzYQVLbg6FXYNLI7TrkBQh0nmVf9F7YvT1PriM32tiBSvy9niU-nkaPupsuFRdOjB6xYU1142RyranwXfkPdutwNR_adDr30yzJZQOHI9UmBM16vqZRTaLWYS8RP7LzRHHtXwU9-gowpLCPLnc3bpNLiwjT997rnjZwbpcdy9QGjBKNy3P-aVfqkUrhNmU0o0uO8Jcsgd21UADQOxTXwV--4OC0dP_2i13ytxUcG31jZA8le5hGt-Mbtp09qBna-BXZh4k3Mg2Eyt-NVHHc0qe_zR8kvfKCXaIlfJdo2zrGgc8TLO5byTjfamQQnqEYlJEOXJUQm2TTtSo9RtqB_HTDcn95bpVW6qm8dw6P8lbFeLRzc0Ikkq-0xNUS3h36s6mKBfo9TTyqGMMb00o2zS0AmWvrrvJxHN9zvD5DfBOfgfj-P7d-6a4rx1pLZlxHt5aHpIRB14EivGuFKCXYshsCg_fgr5fRe-nankaunhbykc84lbnfkxqunfFM5hhOJiSPqPTIjRCl2cNLT1xzJzb-nvwmwSteyU2OT6kC5cV8HuVBef36hBVH8qqig23nQQBVN_Ggv3h1unxrOMgmXg6OsbLk83Bq9R0fZGqHqGbhO06AKVIh-XmnHuMNH8xukIXCZYE1QcuhmWWY-1AfCvVS13lgL2i5ztfFgISiecuoJmVtrTlCF2AGKPmFolVwImcD6T-r3GdsYXNBZgB8aFhTDTR6pjscLhiZguJU21_NSkBvwq-D59ytZIWmC_e-vZSn8tb3CHTeEwot6zIlzLMsBUhbHA75IEdaOAHhkplm7ZDif27xKoqWQDyTquSjYe3qaAT-Z1vFwGquis32iz9JOYNC35exgUd_CIpM-LWgvkLZiy8b9_dDwU0FAku-JbJAiVwzY2qPGBMr-u0si9fs_Q0TxpHenFHHUQZHfC3N7yQo4pAVchPnLvdtyFjh5bKmlKz3ziIgctIAWd7Fq2XoZHsbtgIVktSt5kCU0rxkgyJFl1PMmyC8RXuYfVFZTpVTPTlyV8j1rBjfud7kB-pkLJcaMxl4zYBzG0Z7yPOjuUSQOAs-7Wxa76ma8IgaMPDAM4yHXPmsL5nvCOKqWHuZYre8yZbC5_w4m_EEAUCnvgntLd04WBPSWflcVauXB_m0VEShx8rbHJXWkRsT4Q.N18P0FUQTWIyCc2X1yJlNQ"
+					},
+					{
+						"key": "x-request-origin",
+						"value": "WEB"
+					},
+					{
+						"key": "x-username",
+						"value": "jorge.rabello3@gmail.com"
+					},
+					{
+						"key": "x-visitorid",
+						"value": "de52d9e4-9f74-4176-8b79-a98d55a56193"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"operationName\": \"listReasonsToCancelOrder\",\n    \"variables\": {},\n    \"query\": \"query listReasonsToCancelOrder($orderStatus: String) {\\n  listReasonsToCancelOrder(orderStatus: $orderStatus) {\\n    key\\n    message\\n  }\\n}\\n\"\n}"
+				},
+				"url": {
+					"raw": "https://api.release.ze.delivery/public-api",
+					"protocol": "https",
+					"host": [
+						"api",
+						"release",
+						"ze",
+						"delivery"
+					],
+					"path": [
+						"public-api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "newShowCaseUrlMapper",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Origin",
+						"value": "https://release.web.ze.delivery"
+					},
+					{
+						"key": "Referer",
+						"value": "https://release.web.ze.delivery/"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "empty"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-site"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36"
+					},
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"101\", \"Google Chrome\";v=\"101\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"macOS\""
+					},
+					{
+						"key": "x-accesstoken",
+						"value": "eyJraWQiOiJtVkU3OWZ5M0QrV3JZTUU5MGN6TytoN1dJaG5QalFNM3NrSFwvUlRqZTlxdz0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIxYmY2NWM4Ny0wOGUxLTRiOWEtYjUxZS1hZmMzNTdmOTM2NjQiLCJldmVudF9pZCI6Ijk0M2Q0YzdiLThiYTEtNGQxOS1iZjRhLTQzNjA3N2JhZTc3NCIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE2NTMzNTgzNjIsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy13ZXN0LTIuYW1hem9uYXdzLmNvbVwvdXMtd2VzdC0yX1JKNVdWQnhoSCIsImV4cCI6MTY1MzUzMzY1MywiaWF0IjoxNjUzNDQ3MjUzLCJqdGkiOiJlNzNiZjg2Yi05NTM3LTQzNTQtYThmOC01YzcyNDIzYTk1Y2EiLCJjbGllbnRfaWQiOiIzMmhnMWVoYTRxczc5cnA1ZDdzcXFobzQ1bCIsInVzZXJuYW1lIjoiYjc0MjllYTItMmRkOS01MjIyLTgzZGItMGU2YWMyZTZiNTU0In0.Rgho9A-Sh4P8UDobx_JxsGAkGEg0NUt2s61-JleN7HnlgFj-e1yTug3XFcaV6AuGpbT8K7hpw1lRxbDtKjZPD_LQf9t637_cJ4JgUCCyJc_tWZZtxyh_hgfmBBMy7DOaCXmHefjzFu6nbtZv-jrYYoiiCvYGLedRXAQHpRn0N2wDzEdElHot-VI7rmZT0htz9zABR-3EBvoLrQZPrq4Vf_jNPsVSY_1q2TGLToa50ruofEe9zkNLyCpQdlJ3Hlc6Lhy0I3XUG-eK_y1wvgFW1E9JY4GzpEyh3RdUxwBELvKmGIUiUe0_rwI6gYHMs33622KAVnHSO6PguPCcU2EtxA"
+					},
+					{
+						"key": "x-refreshtoken",
+						"value": "eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.XHnvuvteHkwlixfRR8i-iXVLCyMZPFFC9dA8JjHX6L2kavzu4CrnCpwKGWDmgBPYLWHa6f_VIJFXYWFm2yDA6_8liwm7gluxjpavDT271y253WbJL7YMoO7pveOxXtAz0ITucPZ8jFKg1ee7qmWhpDDlk05r0e_UPtTstSevswyy4WSrykmJyOarcLPWqfJSLdNJ-Pxy7ePkuDGnbnBR7zJ2M5VclEGLIrJfCCj00ggfv4c9a1qi0JPigSc_iaX977ZWokgUPSn5zchPOk1n-0rpGkCMGyzIE8C2Czz9vE505kwdt9KOKDbTNNjP2bhlQAocvJ-nIYycho-UYneI9g.kTVQ1FMvMlSmDBiK.4_aYaZJSd-lAkrQnQWHFjoaZ0f82QKSme1dw1drQbDE5lIffnpX8b6VMrqihgI4sxDKFkhcBDKvh05G1GdEZXljGUB92xi5h0-xIPo8xru9ek-5Yjit67ESdxn_FiZSDPfXZVItjySgv9jL1KsPcarRD3P7LCCz7hm5PDyzYQVLbg6FXYNLI7TrkBQh0nmVf9F7YvT1PriM32tiBSvy9niU-nkaPupsuFRdOjB6xYU1142RyranwXfkPdutwNR_adDr30yzJZQOHI9UmBM16vqZRTaLWYS8RP7LzRHHtXwU9-gowpLCPLnc3bpNLiwjT997rnjZwbpcdy9QGjBKNy3P-aVfqkUrhNmU0o0uO8Jcsgd21UADQOxTXwV--4OC0dP_2i13ytxUcG31jZA8le5hGt-Mbtp09qBna-BXZh4k3Mg2Eyt-NVHHc0qe_zR8kvfKCXaIlfJdo2zrGgc8TLO5byTjfamQQnqEYlJEOXJUQm2TTtSo9RtqB_HTDcn95bpVW6qm8dw6P8lbFeLRzc0Ikkq-0xNUS3h36s6mKBfo9TTyqGMMb00o2zS0AmWvrrvJxHN9zvD5DfBOfgfj-P7d-6a4rx1pLZlxHt5aHpIRB14EivGuFKCXYshsCg_fgr5fRe-nankaunhbykc84lbnfkxqunfFM5hhOJiSPqPTIjRCl2cNLT1xzJzb-nvwmwSteyU2OT6kC5cV8HuVBef36hBVH8qqig23nQQBVN_Ggv3h1unxrOMgmXg6OsbLk83Bq9R0fZGqHqGbhO06AKVIh-XmnHuMNH8xukIXCZYE1QcuhmWWY-1AfCvVS13lgL2i5ztfFgISiecuoJmVtrTlCF2AGKPmFolVwImcD6T-r3GdsYXNBZgB8aFhTDTR6pjscLhiZguJU21_NSkBvwq-D59ytZIWmC_e-vZSn8tb3CHTeEwot6zIlzLMsBUhbHA75IEdaOAHhkplm7ZDif27xKoqWQDyTquSjYe3qaAT-Z1vFwGquis32iz9JOYNC35exgUd_CIpM-LWgvkLZiy8b9_dDwU0FAku-JbJAiVwzY2qPGBMr-u0si9fs_Q0TxpHenFHHUQZHfC3N7yQo4pAVchPnLvdtyFjh5bKmlKz3ziIgctIAWd7Fq2XoZHsbtgIVktSt5kCU0rxkgyJFl1PMmyC8RXuYfVFZTpVTPTlyV8j1rBjfud7kB-pkLJcaMxl4zYBzG0Z7yPOjuUSQOAs-7Wxa76ma8IgaMPDAM4yHXPmsL5nvCOKqWHuZYre8yZbC5_w4m_EEAUCnvgntLd04WBPSWflcVauXB_m0VEShx8rbHJXWkRsT4Q.N18P0FUQTWIyCc2X1yJlNQ"
+					},
+					{
+						"key": "x-request-origin",
+						"value": "WEB"
+					},
+					{
+						"key": "x-username",
+						"value": "jorge.rabello3@gmail.com"
+					},
+					{
+						"key": "x-visitorid",
+						"value": "de52d9e4-9f74-4176-8b79-a98d55a56193"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"operationName\": \"newShowCaseUrlMapper\",\n    \"variables\": {},\n    \"query\": \"query newShowCaseUrlMapper {\\n  newShowCaseUrlMap {\\n    type\\n    urlParam\\n    items {\\n      id\\n      title\\n    }\\n  }\\n}\\n\"\n}"
+				},
+				"url": {
+					"raw": "https://api.release.ze.delivery/public-api",
+					"protocol": "https",
+					"host": [
+						"api",
+						"release",
+						"ze",
+						"delivery"
+					],
+					"path": [
+						"public-api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "countOrdersByCustomer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Origin",
+						"value": "https://release.web.ze.delivery"
+					},
+					{
+						"key": "Referer",
+						"value": "https://release.web.ze.delivery/"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "empty"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-site"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36"
+					},
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"101\", \"Google Chrome\";v=\"101\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"macOS\""
+					},
+					{
+						"key": "x-accesstoken",
+						"value": "{{access_token}}"
+					},
+					{
+						"key": "x-refreshtoken",
+						"value": "{{refresh_token}}"
+					},
+					{
+						"key": "x-request-origin",
+						"value": "WEB"
+					},
+					{
+						"key": "x-username",
+						"value": "jorge.rabello3@gmail.com"
+					},
+					{
+						"key": "x-visitorid",
+						"value": "de52d9e4-9f74-4176-8b79-a98d55a56193"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"operationName\": \"countOrdersByCustomer\",\n    \"variables\": {},\n    \"query\": \"query countOrdersByCustomer {\\n countOrdersByCustomer\\n }\"\n}"
+				},
+				"url": {
+					"raw": "https://api.release.ze.delivery/public-api",
+					"protocol": "https",
+					"host": [
+						"api",
+						"release",
+						"ze",
+						"delivery"
+					],
+					"path": [
+						"public-api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "countOrdersByCustomerGraphQL",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Origin",
+						"value": "https://release.web.ze.delivery"
+					},
+					{
+						"key": "Referer",
+						"value": "https://release.web.ze.delivery/"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "empty"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-site"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36"
+					},
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"101\", \"Google Chrome\";v=\"101\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"macOS\""
+					},
+					{
+						"key": "x-accesstoken",
+						"value": "{{access_token}}"
+					},
+					{
+						"key": "x-refreshtoken",
+						"value": "{{refresh_token}}"
+					},
+					{
+						"key": "x-request-origin",
+						"value": "WEB"
+					},
+					{
+						"key": "x-username",
+						"value": "jorge.rabello3@gmail.com"
+					},
+					{
+						"key": "x-visitorid",
+						"value": "de52d9e4-9f74-4176-8b79-a98d55a56193"
+					}
+				],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query countDeliveredOrdersByCustomer {\n    countDeliveredOrdersByCustomer\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://api.release.ze.delivery/public-api",
+					"protocol": "https",
+					"host": [
+						"api",
+						"release",
+						"ze",
+						"delivery"
+					],
+					"path": [
+						"public-api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listReasonsToCancelOrder [PENDING]",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Origin",
+						"value": "https://release.web.ze.delivery"
+					},
+					{
+						"key": "Referer",
+						"value": "https://release.web.ze.delivery/"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "empty"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-site"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36"
+					},
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"101\", \"Google Chrome\";v=\"101\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"macOS\""
+					},
+					{
+						"key": "x-accesstoken",
+						"value": "eyJraWQiOiJtVkU3OWZ5M0QrV3JZTUU5MGN6TytoN1dJaG5QalFNM3NrSFwvUlRqZTlxdz0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIxYmY2NWM4Ny0wOGUxLTRiOWEtYjUxZS1hZmMzNTdmOTM2NjQiLCJldmVudF9pZCI6IjA5OTE5MDA4LTcwOTUtNDg1MS04ZTliLTdkYTg4M2QyZmU2NyIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE2NTM1MDIyMDIsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy13ZXN0LTIuYW1hem9uYXdzLmNvbVwvdXMtd2VzdC0yX1JKNVdWQnhoSCIsImV4cCI6MTY1MzU4ODYwMiwiaWF0IjoxNjUzNTAyMjAyLCJqdGkiOiJhMzk2YmEyNy02N2VkLTRkOTMtODVjZi01ZTEzYzY5NjA5NTciLCJjbGllbnRfaWQiOiIzMmhnMWVoYTRxczc5cnA1ZDdzcXFobzQ1bCIsInVzZXJuYW1lIjoiYjc0MjllYTItMmRkOS01MjIyLTgzZGItMGU2YWMyZTZiNTU0In0.eW7HMS3Ld9w06kVxux5_RpyuIWkTKRbl2uHQJmEtGe14qqynpzDyUbhFBssoTcTCpGggpM4XHqZo6K-4BVoM8RkpdOUlG-paATQnaMHIXYEaXisrlxixpTM3WLQWGtA-1gtdRip2besLKlxF-R91tC6nalttvWtLeSXTYbx-J6ZPOX6KDk-ETqJz2KL-k2ofWbec5BKMEI4mFh2J_WmY5KvaCQxt0QXxHPXSFCt0WpWksuZGCIxJlipHQYgGTw3kYnhgA8ecaZU37JB1YWWCKMvzmKQF0bnKwMX8kmXnoLeK1kTpp7BLp8Lidwba7S3lk6c_5_uLutMnOi1ptBsyjg"
+					},
+					{
+						"key": "x-refreshtoken",
+						"value": "eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.J31sZiDP2idwSDUiVma2Pid4hTmKjB1tSzNyOpdPxnk8ndF00e61nmWn9_0LD6Gu5MJExbZhTQc_s7NevDyD5UGp1mUODLe1SB0UwZBIIgBKsOzsd_n_DeebmS8dgit29ATQCwE2s-e69NciBfoDw7dPzrAvwEq0kcYfwCQtSRVsygd00ae0NZWT_HpvDSVhS6a7UrOQyFu3piXorZvYyJd__klGNyBqovWqfWGX3nwT-64LtuINItFyJ1Pvm-97O5I0wsQzi8MRTepC00wA8lB9ZwNsqISJFdvbaivdIO7l_GkbPUMAdv9y33WAcol4XPM7mKl8tM71POzBOYP3Yw.lwGyn4Ej4wF-Q2rC.ISOKO_n66n-OuNAl2Kl2bJ-X51UG0gAIYjfgMl51SslcDHb4nh6wAXPbIfQmtO-TRlYn3vZjyUsWPiIXKwoMzRqjf5YOfx1lbK5gRACk4qfBaVwumMOGR7Pn1-gC01xPnjqI1y_9zH4tITtJIjGJ0Xt15X70EzPM_yr0OW8vCcuTDVEwcnXvHHXRfYvuhx_IqPcxvMZ3BbxMIh482iMW8BBiHeztosUb07IdcTx4trUGCVH1ULjhYoEHRYiavlGmwI5--QgxKOT9xUtztpSJfLyZH3EvFmx9px1IrzsWIZ6ZNiy_3u44IJDo1rwTxyJjxk0w9E6U0R6tmHhlfMbyrceDZkQLVwIiagwXLvUu0-E8RtspSlRlUwWVaa5YTOma91V01PFNRffy89pJ_SUS4Sra7jYZhbUw4J1Pj01GQrm7L5Ne3jV32hmqmx9SNxTk6RUZcHwPXw-0wT7awk64auIE3IZAnPR7i6JdRYzxvOhFPZYZn9Eh8lXWJDax8deWF63UOZOj0mdPWcRhaIq1ejY5Z9Usm6TA0XH8BUheQmvg-TlNJlIClW7XUsq3V8JpjOFbutMzTAzZk60PM3gGSE32EqeKkFnv_iz_Kp1csz7oU32X8kIX_FSVpALosm2PRqcm4uKt41JxnWblfFdApa78gTMx5PLh2aXaiU6z-RAX4F8RJa0t7SY0BbiNcKwa7JYsg1qeOykMO4kXQh_PtjomqJG7M4swFRORVs-SohqKyNrRRnYg6ukQQJ3BqW9uLowJJdL6PPKjKnLMsfgsuu8Nopan46p3VMlx3ZGkDxTw2zuQzMJQM5Do5cj-3xAZ8nhGAm7KLdSjNZA3rTlwCkYGOf_uNH2Eh3kXK9Dwc6IDg2T_jWKaoeHV-T5w8yElWDNVRFXyOloXZRMTZVIfdY-4j1yeX0o_cGrgBW22O7I6EWf5AvZNGPC1XXggpQ_kgEKzPNxWbXBfEnV9YSCIHCwYFsB2x7mvazKZQ8CBjgdk7Vh8FsJQZNOdbzhpvAO1eoRPsIRIApE4EdJ_ck6BtMJjI1XvmoM4H1tJ1MMASrMVFozXueiLTzqR2M3ihYcCsO2L1GZDEXARqMP8t-H1cLvyCBBRR6XJ8-o_sfmKIXrwoD_iFvZZTnxUEl4p7n8yf1tTAAa-9WhfhJTK3lujPcg8deg51siwmzta6h_heTQ_kZk1pka0W8VoYqMgOuyHr8vkTOzmwZOsHqlGpEhNcaTfTN6DAmmEeDtUUUOjgk_v_O5Ppy1eq5NYSsp0TK0AJNdlijElflvKgFpGSzfJz3W32_nwXzct6uUBlrdhPzidjdCjM7wqfTa4tA.tNoNKn52FMO5Pg56cYe7pQ"
+					},
+					{
+						"key": "x-request-origin",
+						"value": "WEB"
+					},
+					{
+						"key": "x-username",
+						"value": "jorge.rabello3@gmail.com"
+					},
+					{
+						"key": "x-visitorid",
+						"value": "de52d9e4-9f74-4176-8b79-a98d55a56193"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"operationName\": \"listReasonsToCancelOrder\",\n    \"variables\": {\n        \"orderStatus\": \"PENDING\"\n    },\n    \"query\": \"query listReasonsToCancelOrder($orderStatus: String) {\\n  listReasonsToCancelOrder(orderStatus: $orderStatus) {\\n    key\\n    message\\n  }\\n}\\n\"\n}"
+				},
+				"url": {
+					"raw": "https://api.release.ze.delivery/public-api",
+					"protocol": "https",
+					"host": [
+						"api",
+						"release",
+						"ze",
+						"delivery"
+					],
+					"path": [
+						"public-api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listReasonsToCancelOrder [POC_ACCEPTED]",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Origin",
+						"value": "https://release.web.ze.delivery"
+					},
+					{
+						"key": "Referer",
+						"value": "https://release.web.ze.delivery/"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "empty"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-site"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36"
+					},
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"101\", \"Google Chrome\";v=\"101\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"macOS\""
+					},
+					{
+						"key": "x-accesstoken",
+						"value": "eyJraWQiOiJtVkU3OWZ5M0QrV3JZTUU5MGN6TytoN1dJaG5QalFNM3NrSFwvUlRqZTlxdz0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIxYmY2NWM4Ny0wOGUxLTRiOWEtYjUxZS1hZmMzNTdmOTM2NjQiLCJldmVudF9pZCI6IjA5OTE5MDA4LTcwOTUtNDg1MS04ZTliLTdkYTg4M2QyZmU2NyIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE2NTM1MDIyMDIsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy13ZXN0LTIuYW1hem9uYXdzLmNvbVwvdXMtd2VzdC0yX1JKNVdWQnhoSCIsImV4cCI6MTY1MzU4ODYwMiwiaWF0IjoxNjUzNTAyMjAyLCJqdGkiOiJhMzk2YmEyNy02N2VkLTRkOTMtODVjZi01ZTEzYzY5NjA5NTciLCJjbGllbnRfaWQiOiIzMmhnMWVoYTRxczc5cnA1ZDdzcXFobzQ1bCIsInVzZXJuYW1lIjoiYjc0MjllYTItMmRkOS01MjIyLTgzZGItMGU2YWMyZTZiNTU0In0.eW7HMS3Ld9w06kVxux5_RpyuIWkTKRbl2uHQJmEtGe14qqynpzDyUbhFBssoTcTCpGggpM4XHqZo6K-4BVoM8RkpdOUlG-paATQnaMHIXYEaXisrlxixpTM3WLQWGtA-1gtdRip2besLKlxF-R91tC6nalttvWtLeSXTYbx-J6ZPOX6KDk-ETqJz2KL-k2ofWbec5BKMEI4mFh2J_WmY5KvaCQxt0QXxHPXSFCt0WpWksuZGCIxJlipHQYgGTw3kYnhgA8ecaZU37JB1YWWCKMvzmKQF0bnKwMX8kmXnoLeK1kTpp7BLp8Lidwba7S3lk6c_5_uLutMnOi1ptBsyjg"
+					},
+					{
+						"key": "x-refreshtoken",
+						"value": "eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.J31sZiDP2idwSDUiVma2Pid4hTmKjB1tSzNyOpdPxnk8ndF00e61nmWn9_0LD6Gu5MJExbZhTQc_s7NevDyD5UGp1mUODLe1SB0UwZBIIgBKsOzsd_n_DeebmS8dgit29ATQCwE2s-e69NciBfoDw7dPzrAvwEq0kcYfwCQtSRVsygd00ae0NZWT_HpvDSVhS6a7UrOQyFu3piXorZvYyJd__klGNyBqovWqfWGX3nwT-64LtuINItFyJ1Pvm-97O5I0wsQzi8MRTepC00wA8lB9ZwNsqISJFdvbaivdIO7l_GkbPUMAdv9y33WAcol4XPM7mKl8tM71POzBOYP3Yw.lwGyn4Ej4wF-Q2rC.ISOKO_n66n-OuNAl2Kl2bJ-X51UG0gAIYjfgMl51SslcDHb4nh6wAXPbIfQmtO-TRlYn3vZjyUsWPiIXKwoMzRqjf5YOfx1lbK5gRACk4qfBaVwumMOGR7Pn1-gC01xPnjqI1y_9zH4tITtJIjGJ0Xt15X70EzPM_yr0OW8vCcuTDVEwcnXvHHXRfYvuhx_IqPcxvMZ3BbxMIh482iMW8BBiHeztosUb07IdcTx4trUGCVH1ULjhYoEHRYiavlGmwI5--QgxKOT9xUtztpSJfLyZH3EvFmx9px1IrzsWIZ6ZNiy_3u44IJDo1rwTxyJjxk0w9E6U0R6tmHhlfMbyrceDZkQLVwIiagwXLvUu0-E8RtspSlRlUwWVaa5YTOma91V01PFNRffy89pJ_SUS4Sra7jYZhbUw4J1Pj01GQrm7L5Ne3jV32hmqmx9SNxTk6RUZcHwPXw-0wT7awk64auIE3IZAnPR7i6JdRYzxvOhFPZYZn9Eh8lXWJDax8deWF63UOZOj0mdPWcRhaIq1ejY5Z9Usm6TA0XH8BUheQmvg-TlNJlIClW7XUsq3V8JpjOFbutMzTAzZk60PM3gGSE32EqeKkFnv_iz_Kp1csz7oU32X8kIX_FSVpALosm2PRqcm4uKt41JxnWblfFdApa78gTMx5PLh2aXaiU6z-RAX4F8RJa0t7SY0BbiNcKwa7JYsg1qeOykMO4kXQh_PtjomqJG7M4swFRORVs-SohqKyNrRRnYg6ukQQJ3BqW9uLowJJdL6PPKjKnLMsfgsuu8Nopan46p3VMlx3ZGkDxTw2zuQzMJQM5Do5cj-3xAZ8nhGAm7KLdSjNZA3rTlwCkYGOf_uNH2Eh3kXK9Dwc6IDg2T_jWKaoeHV-T5w8yElWDNVRFXyOloXZRMTZVIfdY-4j1yeX0o_cGrgBW22O7I6EWf5AvZNGPC1XXggpQ_kgEKzPNxWbXBfEnV9YSCIHCwYFsB2x7mvazKZQ8CBjgdk7Vh8FsJQZNOdbzhpvAO1eoRPsIRIApE4EdJ_ck6BtMJjI1XvmoM4H1tJ1MMASrMVFozXueiLTzqR2M3ihYcCsO2L1GZDEXARqMP8t-H1cLvyCBBRR6XJ8-o_sfmKIXrwoD_iFvZZTnxUEl4p7n8yf1tTAAa-9WhfhJTK3lujPcg8deg51siwmzta6h_heTQ_kZk1pka0W8VoYqMgOuyHr8vkTOzmwZOsHqlGpEhNcaTfTN6DAmmEeDtUUUOjgk_v_O5Ppy1eq5NYSsp0TK0AJNdlijElflvKgFpGSzfJz3W32_nwXzct6uUBlrdhPzidjdCjM7wqfTa4tA.tNoNKn52FMO5Pg56cYe7pQ"
+					},
+					{
+						"key": "x-request-origin",
+						"value": "WEB"
+					},
+					{
+						"key": "x-username",
+						"value": "jorge.rabello3@gmail.com"
+					},
+					{
+						"key": "x-visitorid",
+						"value": "de52d9e4-9f74-4176-8b79-a98d55a56193"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"operationName\": \"listReasonsToCancelOrder\",\n    \"variables\": {\n        \"orderStatus\": \"POC_ACCEPTED\"\n    },\n    \"query\": \"query listReasonsToCancelOrder($orderStatus: String) {\\n  listReasonsToCancelOrder(orderStatus: $orderStatus) {\\n    key\\n    message\\n  }\\n}\\n\"\n}"
+				},
+				"url": {
+					"raw": "https://api.release.ze.delivery/public-api",
+					"protocol": "https",
+					"host": [
+						"api",
+						"release",
+						"ze",
+						"delivery"
+					],
+					"path": [
+						"public-api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listReasonsToCancelOrder [DM_PICKED_UP]",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Origin",
+						"value": "https://release.web.ze.delivery"
+					},
+					{
+						"key": "Referer",
+						"value": "https://release.web.ze.delivery/"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "empty"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-site"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36"
+					},
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"101\", \"Google Chrome\";v=\"101\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"macOS\""
+					},
+					{
+						"key": "x-accesstoken",
+						"value": "eyJraWQiOiJtVkU3OWZ5M0QrV3JZTUU5MGN6TytoN1dJaG5QalFNM3NrSFwvUlRqZTlxdz0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIxYmY2NWM4Ny0wOGUxLTRiOWEtYjUxZS1hZmMzNTdmOTM2NjQiLCJldmVudF9pZCI6IjA5OTE5MDA4LTcwOTUtNDg1MS04ZTliLTdkYTg4M2QyZmU2NyIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE2NTM1MDIyMDIsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy13ZXN0LTIuYW1hem9uYXdzLmNvbVwvdXMtd2VzdC0yX1JKNVdWQnhoSCIsImV4cCI6MTY1MzU4ODYwMiwiaWF0IjoxNjUzNTAyMjAyLCJqdGkiOiJhMzk2YmEyNy02N2VkLTRkOTMtODVjZi01ZTEzYzY5NjA5NTciLCJjbGllbnRfaWQiOiIzMmhnMWVoYTRxczc5cnA1ZDdzcXFobzQ1bCIsInVzZXJuYW1lIjoiYjc0MjllYTItMmRkOS01MjIyLTgzZGItMGU2YWMyZTZiNTU0In0.eW7HMS3Ld9w06kVxux5_RpyuIWkTKRbl2uHQJmEtGe14qqynpzDyUbhFBssoTcTCpGggpM4XHqZo6K-4BVoM8RkpdOUlG-paATQnaMHIXYEaXisrlxixpTM3WLQWGtA-1gtdRip2besLKlxF-R91tC6nalttvWtLeSXTYbx-J6ZPOX6KDk-ETqJz2KL-k2ofWbec5BKMEI4mFh2J_WmY5KvaCQxt0QXxHPXSFCt0WpWksuZGCIxJlipHQYgGTw3kYnhgA8ecaZU37JB1YWWCKMvzmKQF0bnKwMX8kmXnoLeK1kTpp7BLp8Lidwba7S3lk6c_5_uLutMnOi1ptBsyjg"
+					},
+					{
+						"key": "x-refreshtoken",
+						"value": "eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.J31sZiDP2idwSDUiVma2Pid4hTmKjB1tSzNyOpdPxnk8ndF00e61nmWn9_0LD6Gu5MJExbZhTQc_s7NevDyD5UGp1mUODLe1SB0UwZBIIgBKsOzsd_n_DeebmS8dgit29ATQCwE2s-e69NciBfoDw7dPzrAvwEq0kcYfwCQtSRVsygd00ae0NZWT_HpvDSVhS6a7UrOQyFu3piXorZvYyJd__klGNyBqovWqfWGX3nwT-64LtuINItFyJ1Pvm-97O5I0wsQzi8MRTepC00wA8lB9ZwNsqISJFdvbaivdIO7l_GkbPUMAdv9y33WAcol4XPM7mKl8tM71POzBOYP3Yw.lwGyn4Ej4wF-Q2rC.ISOKO_n66n-OuNAl2Kl2bJ-X51UG0gAIYjfgMl51SslcDHb4nh6wAXPbIfQmtO-TRlYn3vZjyUsWPiIXKwoMzRqjf5YOfx1lbK5gRACk4qfBaVwumMOGR7Pn1-gC01xPnjqI1y_9zH4tITtJIjGJ0Xt15X70EzPM_yr0OW8vCcuTDVEwcnXvHHXRfYvuhx_IqPcxvMZ3BbxMIh482iMW8BBiHeztosUb07IdcTx4trUGCVH1ULjhYoEHRYiavlGmwI5--QgxKOT9xUtztpSJfLyZH3EvFmx9px1IrzsWIZ6ZNiy_3u44IJDo1rwTxyJjxk0w9E6U0R6tmHhlfMbyrceDZkQLVwIiagwXLvUu0-E8RtspSlRlUwWVaa5YTOma91V01PFNRffy89pJ_SUS4Sra7jYZhbUw4J1Pj01GQrm7L5Ne3jV32hmqmx9SNxTk6RUZcHwPXw-0wT7awk64auIE3IZAnPR7i6JdRYzxvOhFPZYZn9Eh8lXWJDax8deWF63UOZOj0mdPWcRhaIq1ejY5Z9Usm6TA0XH8BUheQmvg-TlNJlIClW7XUsq3V8JpjOFbutMzTAzZk60PM3gGSE32EqeKkFnv_iz_Kp1csz7oU32X8kIX_FSVpALosm2PRqcm4uKt41JxnWblfFdApa78gTMx5PLh2aXaiU6z-RAX4F8RJa0t7SY0BbiNcKwa7JYsg1qeOykMO4kXQh_PtjomqJG7M4swFRORVs-SohqKyNrRRnYg6ukQQJ3BqW9uLowJJdL6PPKjKnLMsfgsuu8Nopan46p3VMlx3ZGkDxTw2zuQzMJQM5Do5cj-3xAZ8nhGAm7KLdSjNZA3rTlwCkYGOf_uNH2Eh3kXK9Dwc6IDg2T_jWKaoeHV-T5w8yElWDNVRFXyOloXZRMTZVIfdY-4j1yeX0o_cGrgBW22O7I6EWf5AvZNGPC1XXggpQ_kgEKzPNxWbXBfEnV9YSCIHCwYFsB2x7mvazKZQ8CBjgdk7Vh8FsJQZNOdbzhpvAO1eoRPsIRIApE4EdJ_ck6BtMJjI1XvmoM4H1tJ1MMASrMVFozXueiLTzqR2M3ihYcCsO2L1GZDEXARqMP8t-H1cLvyCBBRR6XJ8-o_sfmKIXrwoD_iFvZZTnxUEl4p7n8yf1tTAAa-9WhfhJTK3lujPcg8deg51siwmzta6h_heTQ_kZk1pka0W8VoYqMgOuyHr8vkTOzmwZOsHqlGpEhNcaTfTN6DAmmEeDtUUUOjgk_v_O5Ppy1eq5NYSsp0TK0AJNdlijElflvKgFpGSzfJz3W32_nwXzct6uUBlrdhPzidjdCjM7wqfTa4tA.tNoNKn52FMO5Pg56cYe7pQ"
+					},
+					{
+						"key": "x-request-origin",
+						"value": "WEB"
+					},
+					{
+						"key": "x-username",
+						"value": "jorge.rabello3@gmail.com"
+					},
+					{
+						"key": "x-visitorid",
+						"value": "de52d9e4-9f74-4176-8b79-a98d55a56193"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"operationName\": \"listReasonsToCancelOrder\",\n    \"variables\": {\n        \"orderStatus\": \"DM_PICKED_UP\"\n    },\n    \"query\": \"query listReasonsToCancelOrder($orderStatus: String) {\\n  listReasonsToCancelOrder(orderStatus: $orderStatus) {\\n    key\\n    message\\n  }\\n}\\n\"\n}"
+				},
+				"url": {
+					"raw": "https://api.release.ze.delivery/public-api",
+					"protocol": "https",
+					"host": [
+						"api",
+						"release",
+						"ze",
+						"delivery"
+					],
+					"path": [
+						"public-api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listReasonsToCancelOrder [DM_EN_ROUTE]",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Origin",
+						"value": "https://release.web.ze.delivery"
+					},
+					{
+						"key": "Referer",
+						"value": "https://release.web.ze.delivery/"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "empty"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-site"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36"
+					},
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"101\", \"Google Chrome\";v=\"101\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"macOS\""
+					},
+					{
+						"key": "x-accesstoken",
+						"value": "eyJraWQiOiJtVkU3OWZ5M0QrV3JZTUU5MGN6TytoN1dJaG5QalFNM3NrSFwvUlRqZTlxdz0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIxYmY2NWM4Ny0wOGUxLTRiOWEtYjUxZS1hZmMzNTdmOTM2NjQiLCJldmVudF9pZCI6IjA5OTE5MDA4LTcwOTUtNDg1MS04ZTliLTdkYTg4M2QyZmU2NyIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE2NTM1MDIyMDIsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy13ZXN0LTIuYW1hem9uYXdzLmNvbVwvdXMtd2VzdC0yX1JKNVdWQnhoSCIsImV4cCI6MTY1MzU4ODYwMiwiaWF0IjoxNjUzNTAyMjAyLCJqdGkiOiJhMzk2YmEyNy02N2VkLTRkOTMtODVjZi01ZTEzYzY5NjA5NTciLCJjbGllbnRfaWQiOiIzMmhnMWVoYTRxczc5cnA1ZDdzcXFobzQ1bCIsInVzZXJuYW1lIjoiYjc0MjllYTItMmRkOS01MjIyLTgzZGItMGU2YWMyZTZiNTU0In0.eW7HMS3Ld9w06kVxux5_RpyuIWkTKRbl2uHQJmEtGe14qqynpzDyUbhFBssoTcTCpGggpM4XHqZo6K-4BVoM8RkpdOUlG-paATQnaMHIXYEaXisrlxixpTM3WLQWGtA-1gtdRip2besLKlxF-R91tC6nalttvWtLeSXTYbx-J6ZPOX6KDk-ETqJz2KL-k2ofWbec5BKMEI4mFh2J_WmY5KvaCQxt0QXxHPXSFCt0WpWksuZGCIxJlipHQYgGTw3kYnhgA8ecaZU37JB1YWWCKMvzmKQF0bnKwMX8kmXnoLeK1kTpp7BLp8Lidwba7S3lk6c_5_uLutMnOi1ptBsyjg"
+					},
+					{
+						"key": "x-refreshtoken",
+						"value": "eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.J31sZiDP2idwSDUiVma2Pid4hTmKjB1tSzNyOpdPxnk8ndF00e61nmWn9_0LD6Gu5MJExbZhTQc_s7NevDyD5UGp1mUODLe1SB0UwZBIIgBKsOzsd_n_DeebmS8dgit29ATQCwE2s-e69NciBfoDw7dPzrAvwEq0kcYfwCQtSRVsygd00ae0NZWT_HpvDSVhS6a7UrOQyFu3piXorZvYyJd__klGNyBqovWqfWGX3nwT-64LtuINItFyJ1Pvm-97O5I0wsQzi8MRTepC00wA8lB9ZwNsqISJFdvbaivdIO7l_GkbPUMAdv9y33WAcol4XPM7mKl8tM71POzBOYP3Yw.lwGyn4Ej4wF-Q2rC.ISOKO_n66n-OuNAl2Kl2bJ-X51UG0gAIYjfgMl51SslcDHb4nh6wAXPbIfQmtO-TRlYn3vZjyUsWPiIXKwoMzRqjf5YOfx1lbK5gRACk4qfBaVwumMOGR7Pn1-gC01xPnjqI1y_9zH4tITtJIjGJ0Xt15X70EzPM_yr0OW8vCcuTDVEwcnXvHHXRfYvuhx_IqPcxvMZ3BbxMIh482iMW8BBiHeztosUb07IdcTx4trUGCVH1ULjhYoEHRYiavlGmwI5--QgxKOT9xUtztpSJfLyZH3EvFmx9px1IrzsWIZ6ZNiy_3u44IJDo1rwTxyJjxk0w9E6U0R6tmHhlfMbyrceDZkQLVwIiagwXLvUu0-E8RtspSlRlUwWVaa5YTOma91V01PFNRffy89pJ_SUS4Sra7jYZhbUw4J1Pj01GQrm7L5Ne3jV32hmqmx9SNxTk6RUZcHwPXw-0wT7awk64auIE3IZAnPR7i6JdRYzxvOhFPZYZn9Eh8lXWJDax8deWF63UOZOj0mdPWcRhaIq1ejY5Z9Usm6TA0XH8BUheQmvg-TlNJlIClW7XUsq3V8JpjOFbutMzTAzZk60PM3gGSE32EqeKkFnv_iz_Kp1csz7oU32X8kIX_FSVpALosm2PRqcm4uKt41JxnWblfFdApa78gTMx5PLh2aXaiU6z-RAX4F8RJa0t7SY0BbiNcKwa7JYsg1qeOykMO4kXQh_PtjomqJG7M4swFRORVs-SohqKyNrRRnYg6ukQQJ3BqW9uLowJJdL6PPKjKnLMsfgsuu8Nopan46p3VMlx3ZGkDxTw2zuQzMJQM5Do5cj-3xAZ8nhGAm7KLdSjNZA3rTlwCkYGOf_uNH2Eh3kXK9Dwc6IDg2T_jWKaoeHV-T5w8yElWDNVRFXyOloXZRMTZVIfdY-4j1yeX0o_cGrgBW22O7I6EWf5AvZNGPC1XXggpQ_kgEKzPNxWbXBfEnV9YSCIHCwYFsB2x7mvazKZQ8CBjgdk7Vh8FsJQZNOdbzhpvAO1eoRPsIRIApE4EdJ_ck6BtMJjI1XvmoM4H1tJ1MMASrMVFozXueiLTzqR2M3ihYcCsO2L1GZDEXARqMP8t-H1cLvyCBBRR6XJ8-o_sfmKIXrwoD_iFvZZTnxUEl4p7n8yf1tTAAa-9WhfhJTK3lujPcg8deg51siwmzta6h_heTQ_kZk1pka0W8VoYqMgOuyHr8vkTOzmwZOsHqlGpEhNcaTfTN6DAmmEeDtUUUOjgk_v_O5Ppy1eq5NYSsp0TK0AJNdlijElflvKgFpGSzfJz3W32_nwXzct6uUBlrdhPzidjdCjM7wqfTa4tA.tNoNKn52FMO5Pg56cYe7pQ"
+					},
+					{
+						"key": "x-request-origin",
+						"value": "WEB"
+					},
+					{
+						"key": "x-username",
+						"value": "jorge.rabello3@gmail.com"
+					},
+					{
+						"key": "x-visitorid",
+						"value": "de52d9e4-9f74-4176-8b79-a98d55a56193"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"operationName\": \"listReasonsToCancelOrder\",\n    \"variables\": {\n        \"orderStatus\": \"DM_EN_ROUTE\"\n    },\n    \"query\": \"query listReasonsToCancelOrder($orderStatus: String) {\\n  listReasonsToCancelOrder(orderStatus: $orderStatus) {\\n    key\\n    message\\n  }\\n}\\n\"\n}"
+				},
+				"url": {
+					"raw": "https://api.release.ze.delivery/public-api",
+					"protocol": "https",
+					"host": [
+						"api",
+						"release",
+						"ze",
+						"delivery"
+					],
+					"path": [
+						"public-api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listReasonsToCancelOrder [DELIVERED]",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Origin",
+						"value": "https://release.web.ze.delivery"
+					},
+					{
+						"key": "Referer",
+						"value": "https://release.web.ze.delivery/"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "empty"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-site"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36"
+					},
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"101\", \"Google Chrome\";v=\"101\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"macOS\""
+					},
+					{
+						"key": "x-accesstoken",
+						"value": "eyJraWQiOiJtVkU3OWZ5M0QrV3JZTUU5MGN6TytoN1dJaG5QalFNM3NrSFwvUlRqZTlxdz0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIxYmY2NWM4Ny0wOGUxLTRiOWEtYjUxZS1hZmMzNTdmOTM2NjQiLCJldmVudF9pZCI6IjA5OTE5MDA4LTcwOTUtNDg1MS04ZTliLTdkYTg4M2QyZmU2NyIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE2NTM1MDIyMDIsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy13ZXN0LTIuYW1hem9uYXdzLmNvbVwvdXMtd2VzdC0yX1JKNVdWQnhoSCIsImV4cCI6MTY1MzU4ODYwMiwiaWF0IjoxNjUzNTAyMjAyLCJqdGkiOiJhMzk2YmEyNy02N2VkLTRkOTMtODVjZi01ZTEzYzY5NjA5NTciLCJjbGllbnRfaWQiOiIzMmhnMWVoYTRxczc5cnA1ZDdzcXFobzQ1bCIsInVzZXJuYW1lIjoiYjc0MjllYTItMmRkOS01MjIyLTgzZGItMGU2YWMyZTZiNTU0In0.eW7HMS3Ld9w06kVxux5_RpyuIWkTKRbl2uHQJmEtGe14qqynpzDyUbhFBssoTcTCpGggpM4XHqZo6K-4BVoM8RkpdOUlG-paATQnaMHIXYEaXisrlxixpTM3WLQWGtA-1gtdRip2besLKlxF-R91tC6nalttvWtLeSXTYbx-J6ZPOX6KDk-ETqJz2KL-k2ofWbec5BKMEI4mFh2J_WmY5KvaCQxt0QXxHPXSFCt0WpWksuZGCIxJlipHQYgGTw3kYnhgA8ecaZU37JB1YWWCKMvzmKQF0bnKwMX8kmXnoLeK1kTpp7BLp8Lidwba7S3lk6c_5_uLutMnOi1ptBsyjg"
+					},
+					{
+						"key": "x-refreshtoken",
+						"value": "eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.J31sZiDP2idwSDUiVma2Pid4hTmKjB1tSzNyOpdPxnk8ndF00e61nmWn9_0LD6Gu5MJExbZhTQc_s7NevDyD5UGp1mUODLe1SB0UwZBIIgBKsOzsd_n_DeebmS8dgit29ATQCwE2s-e69NciBfoDw7dPzrAvwEq0kcYfwCQtSRVsygd00ae0NZWT_HpvDSVhS6a7UrOQyFu3piXorZvYyJd__klGNyBqovWqfWGX3nwT-64LtuINItFyJ1Pvm-97O5I0wsQzi8MRTepC00wA8lB9ZwNsqISJFdvbaivdIO7l_GkbPUMAdv9y33WAcol4XPM7mKl8tM71POzBOYP3Yw.lwGyn4Ej4wF-Q2rC.ISOKO_n66n-OuNAl2Kl2bJ-X51UG0gAIYjfgMl51SslcDHb4nh6wAXPbIfQmtO-TRlYn3vZjyUsWPiIXKwoMzRqjf5YOfx1lbK5gRACk4qfBaVwumMOGR7Pn1-gC01xPnjqI1y_9zH4tITtJIjGJ0Xt15X70EzPM_yr0OW8vCcuTDVEwcnXvHHXRfYvuhx_IqPcxvMZ3BbxMIh482iMW8BBiHeztosUb07IdcTx4trUGCVH1ULjhYoEHRYiavlGmwI5--QgxKOT9xUtztpSJfLyZH3EvFmx9px1IrzsWIZ6ZNiy_3u44IJDo1rwTxyJjxk0w9E6U0R6tmHhlfMbyrceDZkQLVwIiagwXLvUu0-E8RtspSlRlUwWVaa5YTOma91V01PFNRffy89pJ_SUS4Sra7jYZhbUw4J1Pj01GQrm7L5Ne3jV32hmqmx9SNxTk6RUZcHwPXw-0wT7awk64auIE3IZAnPR7i6JdRYzxvOhFPZYZn9Eh8lXWJDax8deWF63UOZOj0mdPWcRhaIq1ejY5Z9Usm6TA0XH8BUheQmvg-TlNJlIClW7XUsq3V8JpjOFbutMzTAzZk60PM3gGSE32EqeKkFnv_iz_Kp1csz7oU32X8kIX_FSVpALosm2PRqcm4uKt41JxnWblfFdApa78gTMx5PLh2aXaiU6z-RAX4F8RJa0t7SY0BbiNcKwa7JYsg1qeOykMO4kXQh_PtjomqJG7M4swFRORVs-SohqKyNrRRnYg6ukQQJ3BqW9uLowJJdL6PPKjKnLMsfgsuu8Nopan46p3VMlx3ZGkDxTw2zuQzMJQM5Do5cj-3xAZ8nhGAm7KLdSjNZA3rTlwCkYGOf_uNH2Eh3kXK9Dwc6IDg2T_jWKaoeHV-T5w8yElWDNVRFXyOloXZRMTZVIfdY-4j1yeX0o_cGrgBW22O7I6EWf5AvZNGPC1XXggpQ_kgEKzPNxWbXBfEnV9YSCIHCwYFsB2x7mvazKZQ8CBjgdk7Vh8FsJQZNOdbzhpvAO1eoRPsIRIApE4EdJ_ck6BtMJjI1XvmoM4H1tJ1MMASrMVFozXueiLTzqR2M3ihYcCsO2L1GZDEXARqMP8t-H1cLvyCBBRR6XJ8-o_sfmKIXrwoD_iFvZZTnxUEl4p7n8yf1tTAAa-9WhfhJTK3lujPcg8deg51siwmzta6h_heTQ_kZk1pka0W8VoYqMgOuyHr8vkTOzmwZOsHqlGpEhNcaTfTN6DAmmEeDtUUUOjgk_v_O5Ppy1eq5NYSsp0TK0AJNdlijElflvKgFpGSzfJz3W32_nwXzct6uUBlrdhPzidjdCjM7wqfTa4tA.tNoNKn52FMO5Pg56cYe7pQ"
+					},
+					{
+						"key": "x-request-origin",
+						"value": "WEB"
+					},
+					{
+						"key": "x-username",
+						"value": "jorge.rabello3@gmail.com"
+					},
+					{
+						"key": "x-visitorid",
+						"value": "de52d9e4-9f74-4176-8b79-a98d55a56193"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"operationName\": \"listReasonsToCancelOrder\",\n    \"variables\": {\n        \"orderStatus\": \"DELIVERED\"\n    },\n    \"query\": \"query listReasonsToCancelOrder($orderStatus: String) {\\n  listReasonsToCancelOrder(orderStatus: $orderStatus) {\\n    key\\n    message\\n  }\\n}\\n\"\n}"
+				},
+				"url": {
+					"raw": "https://api.release.ze.delivery/public-api",
+					"protocol": "https",
+					"host": [
+						"api",
+						"release",
+						"ze",
+						"delivery"
+					],
+					"path": [
+						"public-api"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
